@@ -1,0 +1,98 @@
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\theLibraryProject.exe.config
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\theLibraryProject.exe
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\theLibraryProject.pdb
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\EntityFramework.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\Npgsql.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Buffers.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Memory.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Security.Permissions.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Text.Json.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Threading.Channels.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.ValueTuple.dll
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\EntityFramework.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\Npgsql.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Buffers.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Data.SQLite.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Memory.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Security.Permissions.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Text.Json.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Threading.Channels.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\bin\Debug\System.ValueTuple.xml
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\obj\Debug\theLibraryProject.Form1.resources
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\obj\Debug\theLibraryProject.Properties.Resources.resources
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\obj\Debug\theLibraryProject.csproj.GenerateResource.cache
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\obj\Debug\theLibraryProject.csproj.CopyComplete
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\obj\Debug\theLibraryProject.exe
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\obj\Debug\theLibraryProject.pdb
+C:\Users\Matic\Desktop\Leto2021\PPB\theLibraryProject\obj\Debug\theLibraryProject.csprojAssemblyReference.cache
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\theLibraryProject.exe.config
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\theLibraryProject.exe
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\theLibraryProject.pdb
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\EntityFramework.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\Npgsql.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Buffers.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Memory.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Security.Permissions.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Text.Json.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Threading.Channels.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.ValueTuple.dll
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\EntityFramework.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\Npgsql.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Buffers.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Data.SQLite.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Memory.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Security.Permissions.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Text.Json.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Threading.Channels.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\bin\Debug\System.ValueTuple.xml
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.csprojAssemblyReference.cache
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.Form1.resources
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.prijavaForm.resources
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.Properties.Resources.resources
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.csproj.GenerateResource.cache
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.csproj.CoreCompileInputs.cache
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.csproj.CopyComplete
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.exe
+C:\Users\Matic Ozimic\Desktop\homeLibrary-main (1)\homeLibrary-main\obj\Debug\theLibraryProject.pdb
