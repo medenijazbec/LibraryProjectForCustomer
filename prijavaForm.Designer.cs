@@ -42,7 +42,7 @@ namespace theLibraryProject
             // 
             // usernameLoginTextBox
             // 
-            this.usernameLoginTextBox.Location = new System.Drawing.Point(326, 94);
+            this.usernameLoginTextBox.Location = new System.Drawing.Point(224, 102);
             this.usernameLoginTextBox.Name = "usernameLoginTextBox";
             this.usernameLoginTextBox.Size = new System.Drawing.Size(100, 20);
             this.usernameLoginTextBox.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace theLibraryProject
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(326, 143);
+            this.passwordTextBox.Location = new System.Drawing.Point(224, 151);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
             this.passwordTextBox.TabIndex = 1;
@@ -66,7 +66,7 @@ namespace theLibraryProject
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(339, 169);
+            this.loginButton.Location = new System.Drawing.Point(237, 177);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
             this.loginButton.TabIndex = 2;
@@ -77,7 +77,7 @@ namespace theLibraryProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(336, 78);
+            this.label1.Location = new System.Drawing.Point(234, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 3;
@@ -86,7 +86,7 @@ namespace theLibraryProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(358, 127);
+            this.label2.Location = new System.Drawing.Point(256, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 4;
@@ -96,7 +96,7 @@ namespace theLibraryProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(540, 282);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.loginButton);
