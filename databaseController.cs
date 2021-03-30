@@ -142,7 +142,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "INSERT INTO books (title, total_pages, rating, publish_date, summary, publisher_id, location_id) VALUES('" + BooksToSave.title + "', '" + BooksToSave.totalPages + "', '" + BooksToSave.rating + "', '" + BooksToSave.publishDate + "', '" + BooksToSave.summary + "', '" + BooksToSave.publisher_id + "', '" + BooksToSave.location_id + "');";
+                string query = "INSERT INTO books (title, summary, year, lost, genre_id) VALUES('" + BooksToSave.title + "', '" + BooksToSave.summary + "', '" + BooksToSave.year + "', '" + BooksToSave.lost + "', '" + BooksToSave.genre_id;
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -169,7 +169,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "UPDATE books SET title='" + BooksToUpdate.title + "', total_pages='" + BooksToUpdate.totalPages + "', rating='" + BooksToUpdate.rating + "', summary='" + BooksToUpdate.summary + "', publisher_id=(SELECT id_p FROM publishers WHERE id_p='" + BooksToUpdate.publisher_id + "'), location_id=(SELECT id_l FROM locations WHERE id_l='" + BooksToUpdate.location_id + "') WHERE id_b='" + BooksToUpdate.id_b + "';";
+                string query = "UPDATE books SET title='" + BooksToUpdate.title + "', summary='" + BooksToUpdate.summary + "', year='" + BooksToUpdate.year + "', lost='" + BooksToUpdate.summary + "', genre_id=(SELECT id_g FROM genres WHERE id_g='" + BooksToUpdate.genre_id + "') WHERE id_b='" + BooksToUpdate.id_b + "';";
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -342,7 +342,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "INSERT INTO authors (name, surname, middlename) VALUES('" + AuthorsToSave.name + "', '" + AuthorsToSave.surname + "', '" + AuthorsToSave.middlename + "');";
+                string query = "INSERT INTO authors (name, surname) VALUES('" + AuthorsToSave.name + "', '" + AuthorsToSave.surname + "');";
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -369,7 +369,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "UPDATE authors SET name='" + AuthorsToUpdate.name + "', surname='" + AuthorsToUpdate.surname + "', middlename='"+AuthorsToUpdate.middlename+"' WHERE(id_a='" + AuthorsToUpdate.id_a + "');";
+                string query = "UPDATE authors SET name='" + AuthorsToUpdate.name + "', surname='" + AuthorsToUpdate.surname + "' WHERE(id_a='" + AuthorsToUpdate.id_a + "');";
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -408,7 +408,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "INSERT INTO genres (genre_type, description) VALUES('" + GenresToSave.genreType + "', '" + GenresToSave.description + "');";
+                string query = "INSERT INTO genres (genre_type) VALUES('" + GenresToSave.genreType + "');";
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -435,7 +435,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "UPDATE genres SET genre_type='" + GenresToUpdate.genreType + "', description='" + GenresToUpdate.description + "' WHERE(id_p='" + GenresToUpdate.id_g + "');";
+                string query = "UPDATE genres SET genre_type='" + GenresToUpdate.genreType + "' WHERE(id_p='" + GenresToUpdate.id_g + "');";
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
