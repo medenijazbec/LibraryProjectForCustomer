@@ -1,6 +1,6 @@
 ﻿/*
 Created: 22/03/2021
-Modified: 22/03/2021
+Modified: 30/03/2021
 Model: MySQL 8.0
 Database: MySQL 8.0
 */
@@ -16,11 +16,15 @@ CREATE TABLE `books`
   `summary` Text,
   `year` Varchar(20),
   `lost` Int,
-  `genre_id` Serial NOT NULL
+  `genre_id` Serial NOT NULL,
+  `publisher_id` Serial NOT NULL
 )
 ;
 
 CREATE INDEX `IX_Relationship3` ON `books` (`genre_id`)
+;
+
+CREATE INDEX `IX_Relationship7` ON `books` (`publisher_id`)
 ;
 
 ALTER TABLE `books` ADD PRIMARY KEY (`id_b`)
@@ -123,6 +127,18 @@ CREATE INDEX `IX_Relationship5` ON `book_authors` (`author_id`)
 CREATE INDEX `IX_Relationship6` ON `book_authors` (`book_id`)
 ;
 
+-- Table publishers
+
+CREATE TABLE `publishers`
+(
+  `id_p` Serial NOT NULL,
+  `name` Text NOT NULL
+)
+;
+
+ALTER TABLE `publishers` ADD PRIMARY KEY (`id_p`)
+;
+
 -- Create foreign keys (relationships) section -------------------------------------------------
 
 ALTER TABLE `rents` ADD CONSTRAINT `Relationship1` FOREIGN KEY (`book_id`) REFERENCES `books` (`id_b`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -141,6 +157,9 @@ ALTER TABLE `book_authors` ADD CONSTRAINT `Relationship5` FOREIGN KEY (`author_i
 ;
 
 ALTER TABLE `book_authors` ADD CONSTRAINT `Relationship6` FOREIGN KEY (`book_id`) REFERENCES `books` (`id_b`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+ALTER TABLE `books` ADD CONSTRAINT `Relationship7` FOREIGN KEY (`publisher_id`) REFERENCES `publishers` (`id_p`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 

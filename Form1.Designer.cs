@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.Član = new System.Windows.Forms.TabPage();
+            this.button13 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -44,8 +47,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.ratingNumeric = new System.Windows.Forms.NumericUpDown();
-            this.numOfPages = new System.Windows.Forms.NumericUpDown();
             this.booksShowAllButton = new System.Windows.Forms.Button();
             this.booksUpdateButton = new System.Windows.Forms.Button();
             this.booksDeleteButton = new System.Windows.Forms.Button();
@@ -60,9 +61,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TabbedPages = new System.Windows.Forms.TabControl();
@@ -127,14 +126,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.Član.SuspendLayout();
             this.AddaBookTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ratingNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numOfPages)).BeginInit();
             this.TabbedPages.SuspendLayout();
             this.LocationsTabPage.SuspendLayout();
             this.AuthorsTabPage.SuspendLayout();
@@ -167,6 +161,31 @@
             this.Član.TabIndex = 1;
             this.Član.Text = "Član";
             this.Član.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(489, 76);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(75, 23);
+            this.button13.TabIndex = 57;
+            this.button13.Text = "Search";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(362, 76);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(121, 20);
+            this.textBox6.TabIndex = 56;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(448, 25);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(111, 23);
+            this.button12.TabIndex = 13;
+            this.button12.Text = "Uredi člana";
+            this.button12.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -278,8 +297,6 @@
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.ratingNumeric);
-            this.groupBox1.Controls.Add(this.numOfPages);
             this.groupBox1.Controls.Add(this.booksShowAllButton);
             this.groupBox1.Controls.Add(this.booksUpdateButton);
             this.groupBox1.Controls.Add(this.booksDeleteButton);
@@ -294,9 +311,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(9, 7);
@@ -321,30 +336,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 54;
-            // 
-            // ratingNumeric
-            // 
-            this.ratingNumeric.Location = new System.Drawing.Point(10, 118);
-            this.ratingNumeric.Name = "ratingNumeric";
-            this.ratingNumeric.Size = new System.Drawing.Size(120, 20);
-            this.ratingNumeric.TabIndex = 53;
-            this.ratingNumeric.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numOfPages
-            // 
-            this.numOfPages.Location = new System.Drawing.Point(9, 79);
-            this.numOfPages.Name = "numOfPages";
-            this.numOfPages.Size = new System.Drawing.Size(120, 20);
-            this.numOfPages.TabIndex = 52;
-            this.numOfPages.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // booksShowAllButton
             // 
@@ -398,7 +389,7 @@
             // locationBooksCombobox
             // 
             this.locationBooksCombobox.FormattingEnabled = true;
-            this.locationBooksCombobox.Location = new System.Drawing.Point(9, 322);
+            this.locationBooksCombobox.Location = new System.Drawing.Point(9, 240);
             this.locationBooksCombobox.Name = "locationBooksCombobox";
             this.locationBooksCombobox.Size = new System.Drawing.Size(121, 21);
             this.locationBooksCombobox.TabIndex = 23;
@@ -406,7 +397,7 @@
             // genreBooksCombobox
             // 
             this.genreBooksCombobox.FormattingEnabled = true;
-            this.genreBooksCombobox.Location = new System.Drawing.Point(9, 273);
+            this.genreBooksCombobox.Location = new System.Drawing.Point(9, 200);
             this.genreBooksCombobox.Name = "genreBooksCombobox";
             this.genreBooksCombobox.Size = new System.Drawing.Size(121, 21);
             this.genreBooksCombobox.TabIndex = 22;
@@ -414,7 +405,7 @@
             // publishersBooksCombobox
             // 
             this.publishersBooksCombobox.FormattingEnabled = true;
-            this.publishersBooksCombobox.Location = new System.Drawing.Point(9, 233);
+            this.publishersBooksCombobox.Location = new System.Drawing.Point(9, 160);
             this.publishersBooksCombobox.Name = "publishersBooksCombobox";
             this.publishersBooksCombobox.Size = new System.Drawing.Size(121, 21);
             this.publishersBooksCombobox.TabIndex = 21;
@@ -423,14 +414,14 @@
             // authorsBooksCombobox
             // 
             this.authorsBooksCombobox.FormattingEnabled = true;
-            this.authorsBooksCombobox.Location = new System.Drawing.Point(9, 193);
+            this.authorsBooksCombobox.Location = new System.Drawing.Point(9, 120);
             this.authorsBooksCombobox.Name = "authorsBooksCombobox";
             this.authorsBooksCombobox.Size = new System.Drawing.Size(121, 21);
             this.authorsBooksCombobox.TabIndex = 20;
             // 
             // summaryTextBox
             // 
-            this.summaryTextBox.Location = new System.Drawing.Point(9, 154);
+            this.summaryTextBox.Location = new System.Drawing.Point(9, 81);
             this.summaryTextBox.Name = "summaryTextBox";
             this.summaryTextBox.Size = new System.Drawing.Size(121, 20);
             this.summaryTextBox.TabIndex = 13;
@@ -445,7 +436,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 306);
+            this.label9.Location = new System.Drawing.Point(10, 224);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 13);
             this.label9.TabIndex = 8;
@@ -463,43 +454,25 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 257);
+            this.label8.Location = new System.Drawing.Point(9, 184);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 13);
             this.label8.TabIndex = 7;
             this.label8.Text = "Žanr";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Število strani";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 217);
+            this.label7.Location = new System.Drawing.Point(6, 144);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 6;
             this.label7.Text = "Založnik";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Mnenje";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 177);
+            this.label6.Location = new System.Drawing.Point(6, 104);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 5;
@@ -508,7 +481,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 141);
+            this.label5.Location = new System.Drawing.Point(6, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 4;
@@ -1127,31 +1100,6 @@
             this.textBox7.Size = new System.Drawing.Size(188, 20);
             this.textBox7.TabIndex = 1;
             // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(448, 25);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(111, 23);
-            this.button12.TabIndex = 13;
-            this.button12.Text = "Uredi člana";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(489, 76);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 57;
-            this.button13.Text = "Search";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(362, 76);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(121, 20);
-            this.textBox6.TabIndex = 56;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1165,8 +1113,6 @@
             this.AddaBookTabPage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ratingNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numOfPages)).EndInit();
             this.TabbedPages.ResumeLayout(false);
             this.LocationsTabPage.ResumeLayout(false);
             this.LocationsTabPage.PerformLayout();
@@ -1197,9 +1143,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabControl TabbedPages;
@@ -1254,8 +1198,6 @@
         private System.Windows.Forms.Button booksDeleteButton;
         private System.Windows.Forms.Button booksAddButton;
         private System.Windows.Forms.ListBox bookslistBox;
-        private System.Windows.Forms.NumericUpDown numOfPages;
-        private System.Windows.Forms.NumericUpDown ratingNumeric;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button5;

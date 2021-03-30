@@ -233,7 +233,7 @@ namespace theLibraryProject
             }
             else
             {
-                Authors aut = new Authors(id_a, name, surname, middlename);
+                Authors aut = new Authors(id_a, name, surname);
                 dbc.SaveAuthors(aut);
                 authorsListbox.Items.Clear();
                 OutputAuthors();
@@ -257,7 +257,7 @@ namespace theLibraryProject
             MessageBox.Show(selectedAuthor);
             MessageBox.Show(surname);
             MessageBox.Show(middlename);
-            Authors aut = new Authors(id_a, selectedAuthor, surname, middlename);
+            Authors aut = new Authors(id_a, selectedAuthor, surname);
             dbc.UpdateAuthors(aut);
             authorsListbox.Items.Clear();
             OutputAuthors();
@@ -280,7 +280,7 @@ namespace theLibraryProject
             MessageBox.Show(selectedAuthor);
             MessageBox.Show(surname);
             MessageBox.Show(middlename);
-            Authors aut = new Authors(id_a, selectedAuthor, surname, middlename);
+            Authors aut = new Authors(id_a, selectedAuthor, surname);
             dbc.DeleteAuthors(aut);
             authorsListbox.Items.Clear();
             OutputAuthors();
@@ -328,7 +328,7 @@ namespace theLibraryProject
             string name = genresNametextBox.Text;
             string description = genresDescriptionrichTextBox.Text;
 
-            Genres gen = new Genres(id_g, name, description);
+            Genres gen = new Genres(id_g, name);
             dbc.SaveGenres(gen);
 
             genreslistBox.Items.Clear();
@@ -346,7 +346,7 @@ namespace theLibraryProject
             int id_g = Convert.ToInt32(GenreID[0].Trim());
             selectedGenre = genresNametextBox.Text;
             description = genresDescriptionrichTextBox.Text;
-            Genres gen = new Genres(id_g, selectedGenre, description);
+            Genres gen = new Genres(id_g, selectedGenre);
             dbc.UpdateGenres(gen);
             genreslistBox.Items.Clear();
             OutputGenres();
@@ -363,7 +363,7 @@ namespace theLibraryProject
             int id_g = Convert.ToInt32(GenreID[0].Trim());
             selectedGenre = genresNametextBox.Text;
             description = genresDescriptionrichTextBox.Text;
-            Genres gen = new Genres(id_g, selectedGenre, description);
+            Genres gen = new Genres(id_g, selectedGenre);
             dbc.DeleteGenres(gen);
             genreslistBox.Items.Clear();
             OutputGenres();
@@ -474,7 +474,7 @@ namespace theLibraryProject
             description = publishersDescriptionRichTextBox.Text;
             #endregion
 
-            Books b = new Books(id_b, title, total_pages, rating, publish_date, summary, id_p, id_l);
+            Books b = new Books(id_b, title, summary, year, lost, genre_id);
             dbc.SaveBooks(b);
             
 
@@ -600,7 +600,7 @@ namespace theLibraryProject
             dbc.UpdateBooksGenres(bg);
 
 
-            Books b = new Books(id_b, title, total_pages, rating, publish_date, summary, id_p, id_l);
+            Books b = new Books(id_b, title, summary, year, lost, genre_id);
             dbc.UpdateBooks(b);
             bookslistBox.Items.Clear();
             OutputBooks();
@@ -627,7 +627,7 @@ namespace theLibraryProject
 
             int id_g = 0;
             
-            Books b = new Books(id_b, selectedBook, total_pages, rating, publish_date, summary, publisher_id, location_id);
+            Books b = new Books(id_b, selectedBook, summary, year, lost, genre_id);
             Book_Genres bg = new Book_Genres(id_b, id_g);
             dbc.DeleteBooksGenres(bg);
 
