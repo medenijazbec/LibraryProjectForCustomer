@@ -15,15 +15,17 @@ namespace theLibraryProject
         public int lost { get; set; }
 
 
-
+        public int publisher_id { get; set; }
         public int genre_id { get; set; }
-        public Books(int _id, string _title,  string _year, string _summary, int _genre_id)
+        public Books(int _id, string _title, string _summary, string _year, int _lost, int _genre_id, int _publisher_id)
         {
             id_b = _id;
             title = _title;
             year = _year;
+            lost = _lost;
             summary = _summary;
             genre_id = _genre_id;
+            publisher_id = _publisher_id;
         }
 
         public override string ToString()

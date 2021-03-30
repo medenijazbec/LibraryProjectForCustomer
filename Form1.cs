@@ -140,9 +140,9 @@ namespace theLibraryProject
             databaseController dbc = new databaseController();
             int id_p = 0;
             string name1 = publishersNameTextBox.Text;
-            string description = publishersDescriptionRichTextBox.Text;
+            
 
-            Publishers pub = new Publishers(id_p, name1, description);
+            Publishers pub = new Publishers(id_p, name1);
             dbc.SavePublishers(pub);
 
             publishersListBox.Items.Clear();
@@ -163,7 +163,7 @@ namespace theLibraryProject
             MessageBox.Show(Convert.ToString(id_p));
             MessageBox.Show(selectedPublisher);
             MessageBox.Show(description);
-            Publishers pub = new Publishers(id_p, selectedPublisher, description);
+            Publishers pub = new Publishers(id_p, selectedPublisher);
             dbc.UpdatePublishers(pub);
             publishersListBox.Items.Clear();
             OutputPublishers();
@@ -180,7 +180,7 @@ namespace theLibraryProject
             int id_p = Convert.ToInt32(PublisherID[0].Trim());
             selectedPublisher = publishersNameTextBox.Text;
             description = publishersDescriptionRichTextBox.Text;
-            Publishers pub = new Publishers(id_p, selectedPublisher, description);
+            Publishers pub = new Publishers(id_p, selectedPublisher);
             dbc.DeletePublishers(pub);
             publishersListBox.Items.Clear();
             OutputPublishers();
@@ -441,48 +441,55 @@ namespace theLibraryProject
 
         private void booksAddButton_Click(object sender, EventArgs e)
         {
-            ratingNumeric.Minimum = 1;
-            ratingNumeric.Maximum = 10;
+            
             databaseController dbc = new databaseController();
            
             int id_b = 0;
             string title = titleTextBox.Text;
-            int total_pages = Convert.ToInt32(numOfPages.Value);
-            int rating = Convert.ToInt32(ratingNumeric.Value);
-            string publish_date=Convert.ToString(DateTime.Now.Date.ToString("MM/dd/yyyy"));
             string summary = Convert.ToString(summaryTextBox.Text);
+            string year = Convert.ToString(yearTextBox.Text);
+            int lost = 0;
+            string publish_date=Convert.ToString(DateTime.Now.Date.ToString("MM/dd/yyyy"));
 
-            //getting location id in bookstab
-            #region location_id
-            string selectedLocation = locationBooksCombobox.SelectedItem.ToString();//exception needs to be handled
-            selectedLocation = selectedLocation.Trim();
-            string[] LocationID = selectedLocation.Split('|');
-            selectedLocation = LocationID[1].Trim();
-            string postalcode = LocationID[2].Trim();
-            int id_l = Convert.ToInt32(LocationID[0].Trim());
+
+            if (lostBookCheckBox.Checked)
+               lost = 1;
+            else
+                lost = 0;
+
+
+
+            
+            #region genre_id
+            string selectedGenre = genreBooksCombobox.SelectedItem.ToString();//exception needs to be handled
+            selectedGenre = selectedGenre.Trim();
+            string[] GenreID = selectedGenre.Split('|');
+            selectedGenre = GenreID[1].Trim();
+            string postalcode = GenreID[2].Trim();
+            int genre_id = Convert.ToInt32(GenreID[0].Trim());
             #endregion
 
-            //getting publisher id in books tab
+            
             #region publisher_id
             string selectedPublisher = publishersBooksCombobox.SelectedItem.ToString();//exception needs to be handled
             selectedPublisher = selectedPublisher.Trim();
             string[] PublisherID = selectedPublisher.Split('|');
             selectedPublisher = PublisherID[1].Trim();
             string description = PublisherID[2].Trim();
-            int id_p = Convert.ToInt32(PublisherID[0].Trim());
+            int publisher_id = Convert.ToInt32(PublisherID[0].Trim());
             selectedPublisher = publishersNameTextBox.Text;
             description = publishersDescriptionRichTextBox.Text;
             #endregion
 
-            Books b = new Books(id_b, title, summary, year, lost, genre_id);
+            Books b = new Books(id_b, title, summary, year, lost, genre_id, publisher_id);
             dbc.SaveBooks(b);
             
 
             //getting genre id
             #region genre_id
-            string selectedGenre = genreBooksCombobox.SelectedItem.ToString();//exception needs to be handled
+            string selectedGenre1 = genreBooksCombobox.SelectedItem.ToString();//exception needs to be handled
             selectedGenre = selectedGenre.Trim();
-            string[] GenreID = selectedGenre.Split('|');
+            string[] GenreID1 = selectedGenre.Split('|');
             selectedGenre = GenreID[1].Trim();
             string g_description = GenreID[2].Trim();
             int id_g = Convert.ToInt32(GenreID[0].Trim());
@@ -508,7 +515,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "SELECT id_b FROM books WHERE(title='" + title + "' AND total_pages='" + total_pages + "' AND rating='" +rating + "' AND publisher_id='" + id_p+ "' AND location_id='" + id_l + "')";
+                string query = "SELECT id_b FROM books WHERE(title='" + title + "' AND summary='" + summary + "' AND year='" + year + "' AND genre_id='" + id_g+ "' AND publisher_id='" + id_p + "')";
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
@@ -544,8 +551,7 @@ namespace theLibraryProject
 
 
             string title = titleTextBox.Text;
-            int total_pages = Convert.ToInt32(numOfPages.Value);
-            int rating = Convert.ToInt32(ratingNumeric.Value);
+      
             string publish_date = Convert.ToString(DateTime.Now.Date.ToString("MM/dd/yyyy"));
             string summary = Convert.ToString(summaryTextBox.Text);
 
@@ -600,7 +606,7 @@ namespace theLibraryProject
             dbc.UpdateBooksGenres(bg);
 
 
-            Books b = new Books(id_b, title, summary, year, lost, genre_id);
+            Books b = new Books(id_b, title, summary, year, lost, genre_id, publisher_id);
             dbc.UpdateBooks(b);
             bookslistBox.Items.Clear();
             OutputBooks();
@@ -627,7 +633,7 @@ namespace theLibraryProject
 
             int id_g = 0;
             
-            Books b = new Books(id_b, selectedBook, summary, year, lost, genre_id);
+            Books b = new Books(id_b, selectedBook, summary, year, lost, genre_id, publisher_id);
             Book_Genres bg = new Book_Genres(id_b, id_g);
             dbc.DeleteBooksGenres(bg);
 
@@ -654,8 +660,7 @@ namespace theLibraryProject
             string summary = BookID[5].Trim();
 
             titleTextBox.Text = selectedBook.ToString();
-            numOfPages.Value = total_pages;
-            ratingNumeric.Value = rating;
+         
             //publish_date
 
             summaryTextBox.Text = summary.ToString();

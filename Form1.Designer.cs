@@ -126,6 +126,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lostBookCheckBox = new System.Windows.Forms.CheckBox();
             this.Član.SuspendLayout();
             this.AddaBookTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -295,6 +298,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lostBookCheckBox);
+            this.groupBox1.Controls.Add(this.yearTextBox);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.booksShowAllButton);
@@ -389,7 +395,7 @@
             // locationBooksCombobox
             // 
             this.locationBooksCombobox.FormattingEnabled = true;
-            this.locationBooksCombobox.Location = new System.Drawing.Point(9, 240);
+            this.locationBooksCombobox.Location = new System.Drawing.Point(9, 295);
             this.locationBooksCombobox.Name = "locationBooksCombobox";
             this.locationBooksCombobox.Size = new System.Drawing.Size(121, 21);
             this.locationBooksCombobox.TabIndex = 23;
@@ -397,7 +403,7 @@
             // genreBooksCombobox
             // 
             this.genreBooksCombobox.FormattingEnabled = true;
-            this.genreBooksCombobox.Location = new System.Drawing.Point(9, 200);
+            this.genreBooksCombobox.Location = new System.Drawing.Point(9, 255);
             this.genreBooksCombobox.Name = "genreBooksCombobox";
             this.genreBooksCombobox.Size = new System.Drawing.Size(121, 21);
             this.genreBooksCombobox.TabIndex = 22;
@@ -405,7 +411,7 @@
             // publishersBooksCombobox
             // 
             this.publishersBooksCombobox.FormattingEnabled = true;
-            this.publishersBooksCombobox.Location = new System.Drawing.Point(9, 160);
+            this.publishersBooksCombobox.Location = new System.Drawing.Point(9, 215);
             this.publishersBooksCombobox.Name = "publishersBooksCombobox";
             this.publishersBooksCombobox.Size = new System.Drawing.Size(121, 21);
             this.publishersBooksCombobox.TabIndex = 21;
@@ -414,7 +420,7 @@
             // authorsBooksCombobox
             // 
             this.authorsBooksCombobox.FormattingEnabled = true;
-            this.authorsBooksCombobox.Location = new System.Drawing.Point(9, 120);
+            this.authorsBooksCombobox.Location = new System.Drawing.Point(9, 175);
             this.authorsBooksCombobox.Name = "authorsBooksCombobox";
             this.authorsBooksCombobox.Size = new System.Drawing.Size(121, 21);
             this.authorsBooksCombobox.TabIndex = 20;
@@ -436,7 +442,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 224);
+            this.label9.Location = new System.Drawing.Point(10, 279);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 13);
             this.label9.TabIndex = 8;
@@ -454,7 +460,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 184);
+            this.label8.Location = new System.Drawing.Point(9, 239);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 13);
             this.label8.TabIndex = 7;
@@ -463,7 +469,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 144);
+            this.label7.Location = new System.Drawing.Point(6, 199);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 6;
@@ -472,7 +478,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 104);
+            this.label6.Location = new System.Drawing.Point(6, 159);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 5;
@@ -1100,6 +1106,32 @@
             this.textBox7.Size = new System.Drawing.Size(188, 20);
             this.textBox7.TabIndex = 1;
             // 
+            // yearTextBox
+            // 
+            this.yearTextBox.Location = new System.Drawing.Point(9, 117);
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.Size = new System.Drawing.Size(121, 20);
+            this.yearTextBox.TabIndex = 57;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Leto izdaje";
+            // 
+            // lostBookCheckBox
+            // 
+            this.lostBookCheckBox.AutoSize = true;
+            this.lostBookCheckBox.Location = new System.Drawing.Point(9, 143);
+            this.lostBookCheckBox.Name = "lostBookCheckBox";
+            this.lostBookCheckBox.Size = new System.Drawing.Size(74, 17);
+            this.lostBookCheckBox.TabIndex = 59;
+            this.lostBookCheckBox.Text = "Izgubljeno";
+            this.lostBookCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1229,6 +1261,9 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox yearTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox lostBookCheckBox;
     }
 }
 

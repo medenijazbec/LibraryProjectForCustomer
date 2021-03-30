@@ -277,7 +277,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "INSERT INTO publishers (name, description) VALUES('" + PublishersToSave.name + "', '" + PublishersToSave.description + "');";
+                string query = "INSERT INTO publishers (name) VALUES('" + PublishersToSave.name + "');";
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -304,7 +304,7 @@ namespace theLibraryProject
             using (NpgsqlConnection con = new NpgsqlConnection("Server=hattie.db.elephantsql.com; User Id=oxbcwgvz;" + "Password=igpiilcYjHtSKKDcs3wuGd15RtjskDzP; Database=oxbcwgvz;"))
             {
                 con.Open();
-                string query = "UPDATE publishers SET name='" + PublishersToUpdate.name + "', description='" + PublishersToUpdate.description + "' WHERE(id_p='" + PublishersToUpdate.id_p + "');";
+                string query = "UPDATE publishers SET name='" + PublishersToUpdate.name + "' WHERE(id_p='" + PublishersToUpdate.id_p + "');";
                 NpgsqlCommand com = new NpgsqlCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
