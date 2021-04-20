@@ -22,6 +22,31 @@ namespace theLibraryProject
             passwordChangeTextboxV2.Enabled = false;
             OutputLocations();
         }
+
+        public userUpdateForm(int id, string name, string surname, string tel, string address, string email, string username, string password, string notes, int _location_id)
+        {
+            databaseController dbc = new databaseController();
+            int id_u = id;
+            nameTextBox.Text= name;
+            surnameTextBox.Text = surname;
+            telTextBox.Text = tel;
+            addressTextBox.Text = address;
+            emailTextBox.Text = email;
+            usernameTextBox.Text = username;
+            passwordChangeTextbox.Text = password;
+            passwordChangeTextboxV2.Text = password;
+            richTextBox1.Text = notes;
+            int location_id = _location_id;
+
+
+            Locations readid = new Locations(location_id, name);
+            dbc.ReadLocationsID(readid);
+
+
+
+
+
+        }
         databaseController db = new databaseController();
         public void OutputLocations()
         {

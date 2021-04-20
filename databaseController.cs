@@ -218,6 +218,30 @@ namespace theLibraryProject
 
             }
         }
+
+        public List<string> ReadLocationsID(Locations LocationsToReadID)
+        {
+            List<string> listOfLocations = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT * FROM locations WHERE id_l='" + LocationsToReadID.id_l + "'";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetString(1);
+                    string postalcode = reader.GetString(2);
+                    listOfLocations.Add(id + " | " + name + " | " + postalcode);
+                }
+                con.Close();
+                return listOfLocations;
+            }
+        }
+
+
+
         #endregion
 
         #region Publishers

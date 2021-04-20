@@ -721,7 +721,11 @@ namespace theLibraryProject
         private void button14_Click(object sender, EventArgs e)
         {
             userRegistrationForm a = new userRegistrationForm();
+            a.Close();
             a.Show();
+  
+            userShowcomboBox.Items.Clear();
+            OutputUsers();
         }
 
         private void changePasswordButton_Click(object sender, EventArgs e)
@@ -754,8 +758,41 @@ namespace theLibraryProject
 
         private void editUserButton_Click(object sender, EventArgs e)
         {
+            
             userUpdateForm a = new userUpdateForm();
+            
+      
+
+            databaseController dbc = new databaseController();
+            string selectedUser = userShowcomboBox.SelectedItem.ToString();//exception needs to be handled
+            selectedUser = selectedUser.Trim();
+            string[] UserID = selectedUser.Split('|');
+            int id_u = Convert.ToInt32(UserID[0].Trim());
+            string name = UserID[1].Trim();//user's name
+            string surname = UserID[2].Trim();
+            string tel = UserID[3].Trim();
+            string address = UserID[4].Trim();
+            string email = UserID[5].Trim();
+            string username = UserID[6].Trim();
+            string password = UserID[7].Trim();
+            string notes = UserID[8].Trim();
+            int location_id = Convert.ToInt32(UserID[9].Trim());
+
             a.Show();
+            userShowcomboBox.Items.Clear();
+            OutputUsers();
+            userUpdateForm ad = new userUpdateForm(id_u, name, surname, tel, address, email, username, password, notes, location_id);
+
+
+
+
+
+
+
+
+
+
+
         }
 
         private void deleteUserButton_Click(object sender, EventArgs e)
