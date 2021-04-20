@@ -13,8 +13,6 @@ namespace theLibraryProject
         public string year { get; set; }
         public string summary { get; set; }
         public int lost { get; set; }
-
-
         public int publisher_id { get; set; }
         public int genre_id { get; set; }
         public Books(int _id, string _title, string _summary, string _year, int _lost, int _genre_id, int _publisher_id)
@@ -27,13 +25,11 @@ namespace theLibraryProject
             genre_id = _genre_id;
             publisher_id = _publisher_id;
         }
-
         public override string ToString()
         {
 
             string toReturn = id_b + " | " + title + " | " + year + " | " + summary + " | " + genre_id;
             return toReturn;
         }
-
     }
 }

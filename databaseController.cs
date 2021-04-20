@@ -16,7 +16,6 @@ namespace theLibraryProject
         #region BooksAuthors
         public void SaveBooksAuthors(Book_Authors Book_AuthorsToSave)
         {
-            // List<string> listOfLocations = new List<string>();
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
@@ -25,13 +24,11 @@ namespace theLibraryProject
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
 
         public void DeleteBooksAuthors(Book_Authors Book_AuthorsToDelete)
         {
-            //List<string> listOfLocations = new List<string>();
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
@@ -45,7 +42,6 @@ namespace theLibraryProject
 
         public void UpdateBooksAuthors(Book_Authors Book_AuthorsToUpdate)
         {
-            //List<string> listOfLocations = new List<string>();
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
@@ -54,7 +50,6 @@ namespace theLibraryProject
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
         public List<int> ReadAuthorsID(Book_Authors Book_AuthorsToGetID)
@@ -99,7 +94,6 @@ namespace theLibraryProject
                     int lost = reader.GetInt32(4);
                     int genre_id = reader.GetInt32(5);
                     int publisher_id = reader.GetInt32(6);
-
                     listOfBooks.Add(id + " | " + title + " | " + summary + " | " +year + " | " +lost+ " | " +genre_id + " | " +publisher_id);
                 }
                 com.Dispose();
@@ -174,7 +168,6 @@ namespace theLibraryProject
                 return listOfLocations;
             }
         }
-
         public void SaveLocations(Locations LocationsToSave)
         {
            // List<string> listOfLocations = new List<string>();
@@ -186,10 +179,8 @@ namespace theLibraryProject
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
-
         public void DeleteLocations(Locations LocationsToDelete)
         {
             //List<string> listOfLocations = new List<string>();
@@ -203,7 +194,6 @@ namespace theLibraryProject
                 con.Close();
             }
         }
-
         public void UpdateLocations(Locations LocationsToUpdate)
         {
             //List<string> listOfLocations = new List<string>();
@@ -215,7 +205,6 @@ namespace theLibraryProject
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
 
@@ -239,9 +228,6 @@ namespace theLibraryProject
                 return listOfLocations;
             }
         }
-
-
-
         #endregion
 
         #region Publishers
@@ -258,17 +244,14 @@ namespace theLibraryProject
                 {
                     int id = reader.GetInt32(0);
                     string name = reader.GetString(1);
-                    
                     listOfPublishers.Add(id + " | " + name);
                 }
                 con.Close();
                 return listOfPublishers;
             }
         }
-
         public void SavePublishers(Publishers PublishersToSave)
-        {
-            
+        {    
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
@@ -277,10 +260,8 @@ namespace theLibraryProject
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
-
         public void DeletePublishers(Publishers PublishersToDelete)
         {
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
@@ -293,7 +274,6 @@ namespace theLibraryProject
                 con.Close();
             }
         }
-
         public void UpdatePublishers(Publishers PublishersToUpdate)
         {
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
@@ -304,7 +284,6 @@ namespace theLibraryProject
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
         #endregion
@@ -395,10 +374,8 @@ namespace theLibraryProject
                 return listOfPublishers;
             }
         }
-
         public void SaveGenres(Genres GenresToSave)
         {
-
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
@@ -407,7 +384,6 @@ namespace theLibraryProject
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
 
@@ -423,7 +399,6 @@ namespace theLibraryProject
                 con.Close();
             }
         }
-
         public void UpdateGenres(Genres GenresToUpdate)
         {
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
@@ -434,7 +409,6 @@ namespace theLibraryProject
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
 
@@ -458,15 +432,12 @@ namespace theLibraryProject
                     string date = reader.GetString(2);
                     int book_id = reader.GetInt32(3);
                     int user_id = reader.GetInt32(4);
-
                     listOfRents.Add(id + " | " + state + " | " + date + " | " + book_id + " | " + user_id);
                 }
                 con.Close();
                 return listOfRents;
             }
         }
-
-
         public void SaveRents(Rents RentsToSave)
         {
             List<string> listOfRents = new List<string>();
@@ -480,7 +451,6 @@ namespace theLibraryProject
                 con.Close();
             }
         }
-
         public void DeleteRents(Rents RentsToDelete)
         {
             //List<string> listOfLocations = new List<string>();
@@ -508,10 +478,6 @@ namespace theLibraryProject
 
             }
         }
-
-
-
-
         #endregion
 
         #region Users
@@ -536,7 +502,6 @@ namespace theLibraryProject
                     string password = reader.GetString(7);
                     string notes = reader.GetString(8);
                     int location_id = reader.GetInt32(9);
-
                     listOfBooks.Add(id + " | " + name + " | " + surname + " | " + tel + " | " + address + " | " + email + " | " + username + " | " + password + " | " + notes + " | " + location_id);
                 }
                 com.Dispose();
@@ -544,8 +509,6 @@ namespace theLibraryProject
                 return listOfBooks;
             }
         }
-
-
         public void SaveUsers(Users UsersToSave)
         {
             List<string> listOfBooks = new List<string>();
@@ -579,12 +542,11 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "UPDATE books SET name='" + UsersToUpdate.name + "', surname='" + UsersToUpdate.surname + "', tel='" + UsersToUpdate.tel + "', address='" + UsersToUpdate.address + "', email='" + UsersToUpdate.email + "', usrname='" + UsersToUpdate.username + "', password='" + UsersToUpdate.password + "', notes='" + UsersToUpdate.notes + "', location_id=(SELECT id_l FROM locations WHERE id_l='" + UsersToUpdate.location_id + "') WHERE id_u='" + UsersToUpdate.id_u + "';";
+                string query = "UPDATE users SET name='" + UsersToUpdate.name + "', surname='" + UsersToUpdate.surname + "', tel='" + UsersToUpdate.tel + "', address='" + UsersToUpdate.address + "', email='" + UsersToUpdate.email + "', username='" + UsersToUpdate.username + "', password='" + UsersToUpdate.password + "', notes='" + UsersToUpdate.notes + "', location_id=(SELECT id_l FROM locations WHERE id_l='" + UsersToUpdate.location_id + "') WHERE id_u='" + UsersToUpdate.id_u + "';";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
                 con.Close();
-
             }
         }
 

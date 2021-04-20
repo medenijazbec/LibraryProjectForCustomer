@@ -72,6 +72,7 @@ namespace theLibraryProject
                 }
 
                 int id_u = 0;
+                id_u = Form1.user_id_u;
                 string name = nameTextBox.Text;
                 string surname = Convert.ToString(surnameTextBox.Text);
                 string tel = Convert.ToString(telTextBox.Text);
@@ -88,9 +89,8 @@ namespace theLibraryProject
                 int location_id = Convert.ToInt32(LocationID[0].Trim());
                 #endregion
                 Users user = new Users(id_u, name, surname, tel, address, email, username, password, notes, location_id);
-                dbc.SaveUsers(user);
+                dbc.UpdateUsers(user);
             }
-
             else
             {
                 #region location_id_member
@@ -110,18 +110,11 @@ namespace theLibraryProject
                 //password
                 string notes1 = Convert.ToString(richTextBox1.Text);
                 Users member = new Users(id_u_member, name_member, surname_member, tel_member, address_member, email_member, notes_member, location_id_member);
-                dbc.SaveUsers(member);
+                dbc.UpdateUsers(member);
             }
-
-
-
-
-
         }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
             if (checkBox1.Checked)
             {
                 usernameTextBox.Enabled = true;
@@ -135,7 +128,6 @@ namespace theLibraryProject
                 passwordChangeTextboxV2.Enabled = false;
             }
         }
-
         private void userUpdateForm_Load(object sender, EventArgs e)
         {
             databaseController dbc = new databaseController();
@@ -145,17 +137,13 @@ namespace theLibraryProject
             addressTextBox.Text = Form1.address;
             emailTextBox.Text = Form1.email;
             usernameTextBox.Text = Form1.username;
-            passwordChangeTextbox.Text = Form1.passwordV1;
-            passwordChangeTextboxV2.Text = Form1.passwordV2;
+            //passwordChangeTextbox.Text = Form1.passwordV1;
+            //passwordChangeTextboxV2.Text = Form1.passwordV2;
             richTextBox1.Text = Form1.notes;
-
             int id_u = Form1.user_id_u;
             int location_id = Form1.user_location_id;
-
             Locations readid = new Locations(Form1.user_location_id, Form1.name);
-            dbc.ReadLocationsID(readid); 
-
-
+            dbc.ReadLocationsID(readid);
         }
     }
 }

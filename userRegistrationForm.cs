@@ -30,7 +30,6 @@ namespace theLibraryProject
                 locationsComboBox.Items.Add(name);
             }
         }
-
         static string Encrypt(string password)
         {
             using (SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider())
@@ -40,14 +39,12 @@ namespace theLibraryProject
                 return Convert.ToBase64String(data);
             }
         }
-
         private void createUserButton_Click(object sender, EventArgs e)
         {
             databaseController dbc = new databaseController();
             string password = "";
             if (checkBox1.Checked)
             {
-
                 password = passwordChangeTextbox.Text;
                 if (string.IsNullOrEmpty(passwordChangeTextbox.Text))
                 {
@@ -68,7 +65,6 @@ namespace theLibraryProject
                 {
                     MessageBox.Show("Gesli se ne ujemata!");
                 }
-
                 int id_u = 0;
                 string name = nameTextBox.Text;
                 string surname = Convert.ToString(surnameTextBox.Text);
@@ -109,9 +105,7 @@ namespace theLibraryProject
                 string notes1 = Convert.ToString(richTextBox1.Text);
                 Users member = new Users(id_u_member, name_member, surname_member, tel_member, address_member, email_member, notes_member, location_id_member);
                 dbc.SaveUsers(member);
-            }
-
-            
+            } 
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -121,7 +115,6 @@ namespace theLibraryProject
                 usernameTextBox.Enabled = true;
                 passwordChangeTextbox.Enabled = true;
                 passwordChangeTextboxV2.Enabled = true;
-
             }
             else
             {

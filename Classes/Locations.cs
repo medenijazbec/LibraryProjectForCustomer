@@ -11,21 +11,18 @@ namespace theLibraryProject.Classes
         public int id_l { get; set; }
         public string name { get; set; }
         public string postalcode { get; set; }
-
         public Locations(int _id, string _name)
         {
             id_l = _id;
             name = _name;
             postalcode = "";
         }
-
         public Locations(int _id, string _name, string _postalcode)
         {
             id_l = _id;
             name = _name;
             postalcode = _postalcode;
         }
-
         public override string ToString()
         {
 

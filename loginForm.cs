@@ -20,7 +20,6 @@ namespace theLibraryProject
         }
         databaseController db = new databaseController();
         public static string username = "";
-      
         static string Encrypt(string password)
         {
             using (SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider())
@@ -30,7 +29,6 @@ namespace theLibraryProject
                 return Convert.ToBase64String(data);
             }
         }
-
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (usernameLoginTextBox.Text == "" || passwordTextBox.Text == "")
@@ -42,11 +40,9 @@ namespace theLibraryProject
             {
                 databaseController dbc = new databaseController();
                 string password = "";
-                
                 password = passwordTextBox.Text;
                 string username = usernameLoginTextBox.Text;
                 password = Encrypt(passwordTextBox.Text);
-
                 string fetchedPassword = "";
                 Users getUserCreds = new Users(username);
                 dbc.ReadUserLogin(getUserCreds);
@@ -54,28 +50,27 @@ namespace theLibraryProject
                 {
                     fetchedPassword = name;   
                 }
-
                 if (password == fetchedPassword)
                 {
                     MessageBox.Show("Prijava uspešna!");
                     Form1 form = new Form1();
                     form.Show();
+                    this.Hide();
                 }
                 else
                 {
                     MessageBox.Show("Prijava neuspešna. Preverite vnos.");
                 }
-                
-
-
-               
-            
             }
         }
-
         private void prijavaForm_Load(object sender, EventArgs e)
         {
 
+        }
+        private void createUserButton_Click(object sender, EventArgs e)
+        {
+            userRegistrationForm n = new userRegistrationForm();
+            n.Show();
         }
     }
 }

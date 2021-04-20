@@ -21,14 +21,11 @@ namespace theLibraryProject.Classes
             book_id = _book_id;
             user_id = _user_id;
         }
-
         public override string ToString()
         {
 
             string toReturn = id_r + " | " + state + " | " + date + " | " + book_id + " | " + user_id;
             return toReturn;
         }
-
-
     }
 }
