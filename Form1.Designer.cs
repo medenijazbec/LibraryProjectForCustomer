@@ -29,22 +29,26 @@
         private void InitializeComponent()
         {
             this.Član = new System.Windows.Forms.TabPage();
+            this.deleteUserButton = new System.Windows.Forms.Button();
+            this.userShowcomboBox = new System.Windows.Forms.ComboBox();
+            this.registerUserButton = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button12 = new System.Windows.Forms.Button();
+            this.editUserButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.userUnLendedBookslistBox = new System.Windows.Forms.ListBox();
+            this.returnAllBooksButton = new System.Windows.Forms.Button();
+            this.userLendedBookslistBox = new System.Windows.Forms.ListBox();
+            this.returnBookButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.AddaBookTabPage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lostBookCheckBox = new System.Windows.Forms.CheckBox();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.booksShowAllButton = new System.Windows.Forms.Button();
@@ -86,34 +90,28 @@
             this.authorsUpdateButton = new System.Windows.Forms.Button();
             this.authorsDeleteButton = new System.Windows.Forms.Button();
             this.authorsAddButton = new System.Windows.Forms.Button();
-            this.authorsMiddlenameTextBox = new System.Windows.Forms.TextBox();
             this.authorsNameTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.authorsListbox = new System.Windows.Forms.ListBox();
             this.PublishersTabPage = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.publishersDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.publishersShowAllButton = new System.Windows.Forms.Button();
             this.publishersUpdateButton = new System.Windows.Forms.Button();
             this.publishersDeleteButton = new System.Windows.Forms.Button();
             this.publishersAddButton = new System.Windows.Forms.Button();
             this.publishersNameTextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.publishersRichTextBox = new System.Windows.Forms.Label();
             this.publishersListBox = new System.Windows.Forms.ListBox();
             this.genreTab = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.genresDescriptionrichTextBox = new System.Windows.Forms.RichTextBox();
             this.genresShowallButton = new System.Windows.Forms.Button();
             this.genresUpdateButton = new System.Windows.Forms.Button();
             this.genresDeleteButton = new System.Windows.Forms.Button();
             this.genresAddButton = new System.Windows.Forms.Button();
             this.genresNametextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.genreslistBox = new System.Windows.Forms.ListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button10 = new System.Windows.Forms.Button();
@@ -124,11 +122,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.yearTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lostBookCheckBox = new System.Windows.Forms.CheckBox();
+            this.passwordChangeTextboxV2 = new System.Windows.Forms.TextBox();
+            this.passwordChangeTextbox = new System.Windows.Forms.TextBox();
             this.Član.SuspendLayout();
             this.AddaBookTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -143,20 +138,21 @@
             // 
             // Član
             // 
+            this.Član.Controls.Add(this.deleteUserButton);
+            this.Član.Controls.Add(this.userShowcomboBox);
+            this.Član.Controls.Add(this.registerUserButton);
             this.Član.Controls.Add(this.button13);
             this.Član.Controls.Add(this.textBox6);
-            this.Član.Controls.Add(this.button12);
+            this.Član.Controls.Add(this.editUserButton);
             this.Član.Controls.Add(this.label12);
             this.Član.Controls.Add(this.label4);
-            this.Član.Controls.Add(this.listBox2);
-            this.Član.Controls.Add(this.button11);
-            this.Član.Controls.Add(this.listBox1);
-            this.Član.Controls.Add(this.button4);
+            this.Član.Controls.Add(this.userUnLendedBookslistBox);
+            this.Član.Controls.Add(this.returnAllBooksButton);
+            this.Član.Controls.Add(this.userLendedBookslistBox);
+            this.Član.Controls.Add(this.returnBookButton);
             this.Član.Controls.Add(this.button3);
             this.Član.Controls.Add(this.label11);
-            this.Član.Controls.Add(this.button2);
             this.Član.Controls.Add(this.label10);
-            this.Član.Controls.Add(this.textBox10);
             this.Član.Location = new System.Drawing.Point(4, 22);
             this.Član.Name = "Član";
             this.Član.Padding = new System.Windows.Forms.Padding(3);
@@ -164,6 +160,34 @@
             this.Član.TabIndex = 1;
             this.Član.Text = "Član";
             this.Član.UseVisualStyleBackColor = true;
+            // 
+            // deleteUserButton
+            // 
+            this.deleteUserButton.Location = new System.Drawing.Point(808, 24);
+            this.deleteUserButton.Name = "deleteUserButton";
+            this.deleteUserButton.Size = new System.Drawing.Size(111, 23);
+            this.deleteUserButton.TabIndex = 60;
+            this.deleteUserButton.Text = "Izbriši člana";
+            this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
+            // 
+            // userShowcomboBox
+            // 
+            this.userShowcomboBox.FormattingEnabled = true;
+            this.userShowcomboBox.Location = new System.Drawing.Point(11, 26);
+            this.userShowcomboBox.Name = "userShowcomboBox";
+            this.userShowcomboBox.Size = new System.Drawing.Size(557, 21);
+            this.userShowcomboBox.TabIndex = 59;
+            // 
+            // registerUserButton
+            // 
+            this.registerUserButton.Location = new System.Drawing.Point(691, 24);
+            this.registerUserButton.Name = "registerUserButton";
+            this.registerUserButton.Size = new System.Drawing.Size(111, 23);
+            this.registerUserButton.TabIndex = 58;
+            this.registerUserButton.Text = "Registriraj člana";
+            this.registerUserButton.UseVisualStyleBackColor = true;
+            this.registerUserButton.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -181,14 +205,15 @@
             this.textBox6.Size = new System.Drawing.Size(121, 20);
             this.textBox6.TabIndex = 56;
             // 
-            // button12
+            // editUserButton
             // 
-            this.button12.Location = new System.Drawing.Point(448, 25);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(111, 23);
-            this.button12.TabIndex = 13;
-            this.button12.Text = "Uredi člana";
-            this.button12.UseVisualStyleBackColor = true;
+            this.editUserButton.Location = new System.Drawing.Point(574, 24);
+            this.editUserButton.Name = "editUserButton";
+            this.editUserButton.Size = new System.Drawing.Size(111, 23);
+            this.editUserButton.TabIndex = 13;
+            this.editUserButton.Text = "Uredi člana";
+            this.editUserButton.UseVisualStyleBackColor = true;
+            this.editUserButton.Click += new System.EventHandler(this.editUserButton_Click);
             // 
             // label12
             // 
@@ -208,39 +233,39 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Knjige za izposojo";
             // 
-            // listBox2
+            // userUnLendedBookslistBox
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(362, 127);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(469, 212);
-            this.listBox2.TabIndex = 10;
+            this.userUnLendedBookslistBox.FormattingEnabled = true;
+            this.userUnLendedBookslistBox.Location = new System.Drawing.Point(362, 127);
+            this.userUnLendedBookslistBox.Name = "userUnLendedBookslistBox";
+            this.userUnLendedBookslistBox.Size = new System.Drawing.Size(469, 212);
+            this.userUnLendedBookslistBox.TabIndex = 10;
             // 
-            // button11
+            // returnAllBooksButton
             // 
-            this.button11.Location = new System.Drawing.Point(23, 374);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(102, 23);
-            this.button11.TabIndex = 9;
-            this.button11.Text = "Vrni vse";
-            this.button11.UseVisualStyleBackColor = true;
+            this.returnAllBooksButton.Location = new System.Drawing.Point(23, 374);
+            this.returnAllBooksButton.Name = "returnAllBooksButton";
+            this.returnAllBooksButton.Size = new System.Drawing.Size(102, 23);
+            this.returnAllBooksButton.TabIndex = 9;
+            this.returnAllBooksButton.Text = "Vrni vse";
+            this.returnAllBooksButton.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // userLendedBookslistBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(23, 127);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(306, 212);
-            this.listBox1.TabIndex = 8;
+            this.userLendedBookslistBox.FormattingEnabled = true;
+            this.userLendedBookslistBox.Location = new System.Drawing.Point(23, 127);
+            this.userLendedBookslistBox.Name = "userLendedBookslistBox";
+            this.userLendedBookslistBox.Size = new System.Drawing.Size(306, 212);
+            this.userLendedBookslistBox.TabIndex = 8;
             // 
-            // button4
+            // returnBookButton
             // 
-            this.button4.Location = new System.Drawing.Point(23, 345);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(102, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Vrni";
-            this.button4.UseVisualStyleBackColor = true;
+            this.returnBookButton.Location = new System.Drawing.Point(23, 345);
+            this.returnBookButton.Name = "returnBookButton";
+            this.returnBookButton.Size = new System.Drawing.Size(102, 23);
+            this.returnBookButton.TabIndex = 7;
+            this.returnBookButton.Text = "Vrni";
+            this.returnBookButton.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -260,15 +285,6 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "Trenutno izposojene knjige";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(342, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Išči";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -277,13 +293,6 @@
             this.label10.Size = new System.Drawing.Size(107, 13);
             this.label10.TabIndex = 1;
             this.label10.Text = "Preišči bazo za člana";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(6, 27);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(330, 20);
-            this.textBox10.TabIndex = 0;
             // 
             // AddaBookTabPage
             // 
@@ -326,6 +335,32 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lostBookCheckBox
+            // 
+            this.lostBookCheckBox.AutoSize = true;
+            this.lostBookCheckBox.Location = new System.Drawing.Point(9, 143);
+            this.lostBookCheckBox.Name = "lostBookCheckBox";
+            this.lostBookCheckBox.Size = new System.Drawing.Size(74, 17);
+            this.lostBookCheckBox.TabIndex = 59;
+            this.lostBookCheckBox.Text = "Izgubljeno";
+            this.lostBookCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // yearTextBox
+            // 
+            this.yearTextBox.Location = new System.Drawing.Point(9, 117);
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.Size = new System.Drawing.Size(121, 20);
+            this.yearTextBox.TabIndex = 57;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Leto izdaje";
             // 
             // button1
             // 
@@ -388,7 +423,7 @@
             this.bookslistBox.FormattingEnabled = true;
             this.bookslistBox.Location = new System.Drawing.Point(276, 79);
             this.bookslistBox.Name = "bookslistBox";
-            this.bookslistBox.Size = new System.Drawing.Size(433, 277);
+            this.bookslistBox.Size = new System.Drawing.Size(571, 277);
             this.bookslistBox.TabIndex = 47;
             this.bookslistBox.DoubleClick += new System.EventHandler(this.bookslistBox_DoubleClick);
             // 
@@ -637,10 +672,8 @@
             this.AuthorsTabPage.Controls.Add(this.authorsUpdateButton);
             this.AuthorsTabPage.Controls.Add(this.authorsDeleteButton);
             this.AuthorsTabPage.Controls.Add(this.authorsAddButton);
-            this.AuthorsTabPage.Controls.Add(this.authorsMiddlenameTextBox);
             this.AuthorsTabPage.Controls.Add(this.authorsNameTextBox);
             this.AuthorsTabPage.Controls.Add(this.label15);
-            this.AuthorsTabPage.Controls.Add(this.label16);
             this.AuthorsTabPage.Controls.Add(this.authorsListbox);
             this.AuthorsTabPage.Location = new System.Drawing.Point(4, 22);
             this.AuthorsTabPage.Name = "AuthorsTabPage";
@@ -684,7 +717,7 @@
             // 
             // authorsShowAllButton
             // 
-            this.authorsShowAllButton.Location = new System.Drawing.Point(32, 151);
+            this.authorsShowAllButton.Location = new System.Drawing.Point(32, 114);
             this.authorsShowAllButton.Name = "authorsShowAllButton";
             this.authorsShowAllButton.Size = new System.Drawing.Size(75, 23);
             this.authorsShowAllButton.TabIndex = 37;
@@ -694,7 +727,7 @@
             // 
             // authorsUpdateButton
             // 
-            this.authorsUpdateButton.Location = new System.Drawing.Point(32, 209);
+            this.authorsUpdateButton.Location = new System.Drawing.Point(32, 172);
             this.authorsUpdateButton.Name = "authorsUpdateButton";
             this.authorsUpdateButton.Size = new System.Drawing.Size(75, 23);
             this.authorsUpdateButton.TabIndex = 36;
@@ -704,7 +737,7 @@
             // 
             // authorsDeleteButton
             // 
-            this.authorsDeleteButton.Location = new System.Drawing.Point(32, 238);
+            this.authorsDeleteButton.Location = new System.Drawing.Point(32, 201);
             this.authorsDeleteButton.Name = "authorsDeleteButton";
             this.authorsDeleteButton.Size = new System.Drawing.Size(75, 23);
             this.authorsDeleteButton.TabIndex = 35;
@@ -714,20 +747,13 @@
             // 
             // authorsAddButton
             // 
-            this.authorsAddButton.Location = new System.Drawing.Point(32, 180);
+            this.authorsAddButton.Location = new System.Drawing.Point(32, 143);
             this.authorsAddButton.Name = "authorsAddButton";
             this.authorsAddButton.Size = new System.Drawing.Size(75, 23);
             this.authorsAddButton.TabIndex = 34;
             this.authorsAddButton.Text = "Add";
             this.authorsAddButton.UseVisualStyleBackColor = true;
             this.authorsAddButton.Click += new System.EventHandler(this.authorsAddButton_Click);
-            // 
-            // authorsMiddlenameTextBox
-            // 
-            this.authorsMiddlenameTextBox.Location = new System.Drawing.Point(32, 125);
-            this.authorsMiddlenameTextBox.Name = "authorsMiddlenameTextBox";
-            this.authorsMiddlenameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.authorsMiddlenameTextBox.TabIndex = 33;
             // 
             // authorsNameTextBox
             // 
@@ -745,15 +771,6 @@
             this.label15.TabIndex = 30;
             this.label15.Text = "Ime";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(29, 109);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(80, 13);
-            this.label16.TabIndex = 31;
-            this.label16.Text = "Dekliški priimek";
-            // 
             // authorsListbox
             // 
             this.authorsListbox.FormattingEnabled = true;
@@ -767,14 +784,12 @@
             // 
             this.PublishersTabPage.Controls.Add(this.button7);
             this.PublishersTabPage.Controls.Add(this.textBox4);
-            this.PublishersTabPage.Controls.Add(this.publishersDescriptionRichTextBox);
             this.PublishersTabPage.Controls.Add(this.publishersShowAllButton);
             this.PublishersTabPage.Controls.Add(this.publishersUpdateButton);
             this.PublishersTabPage.Controls.Add(this.publishersDeleteButton);
             this.PublishersTabPage.Controls.Add(this.publishersAddButton);
             this.PublishersTabPage.Controls.Add(this.publishersNameTextBox);
             this.PublishersTabPage.Controls.Add(this.label18);
-            this.PublishersTabPage.Controls.Add(this.publishersRichTextBox);
             this.PublishersTabPage.Controls.Add(this.publishersListBox);
             this.PublishersTabPage.Location = new System.Drawing.Point(4, 22);
             this.PublishersTabPage.Name = "PublishersTabPage";
@@ -799,14 +814,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(121, 20);
             this.textBox4.TabIndex = 56;
-            // 
-            // publishersDescriptionRichTextBox
-            // 
-            this.publishersDescriptionRichTextBox.Location = new System.Drawing.Point(9, 58);
-            this.publishersDescriptionRichTextBox.Name = "publishersDescriptionRichTextBox";
-            this.publishersDescriptionRichTextBox.Size = new System.Drawing.Size(222, 132);
-            this.publishersDescriptionRichTextBox.TabIndex = 38;
-            this.publishersDescriptionRichTextBox.Text = "";
             // 
             // publishersShowAllButton
             // 
@@ -850,7 +857,7 @@
             // 
             // publishersNameTextBox
             // 
-            this.publishersNameTextBox.Location = new System.Drawing.Point(9, 19);
+            this.publishersNameTextBox.Location = new System.Drawing.Point(38, 68);
             this.publishersNameTextBox.Name = "publishersNameTextBox";
             this.publishersNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.publishersNameTextBox.TabIndex = 32;
@@ -858,20 +865,11 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 3);
+            this.label18.Location = new System.Drawing.Point(35, 52);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(24, 13);
             this.label18.TabIndex = 30;
             this.label18.Text = "Ime";
-            // 
-            // publishersRichTextBox
-            // 
-            this.publishersRichTextBox.AutoSize = true;
-            this.publishersRichTextBox.Location = new System.Drawing.Point(6, 42);
-            this.publishersRichTextBox.Name = "publishersRichTextBox";
-            this.publishersRichTextBox.Size = new System.Drawing.Size(28, 13);
-            this.publishersRichTextBox.TabIndex = 31;
-            this.publishersRichTextBox.Text = "Opis";
             // 
             // publishersListBox
             // 
@@ -886,14 +884,12 @@
             // 
             this.genreTab.Controls.Add(this.button8);
             this.genreTab.Controls.Add(this.textBox5);
-            this.genreTab.Controls.Add(this.genresDescriptionrichTextBox);
             this.genreTab.Controls.Add(this.genresShowallButton);
             this.genreTab.Controls.Add(this.genresUpdateButton);
             this.genreTab.Controls.Add(this.genresDeleteButton);
             this.genreTab.Controls.Add(this.genresAddButton);
             this.genreTab.Controls.Add(this.genresNametextBox);
             this.genreTab.Controls.Add(this.label19);
-            this.genreTab.Controls.Add(this.label20);
             this.genreTab.Controls.Add(this.genreslistBox);
             this.genreTab.Location = new System.Drawing.Point(4, 22);
             this.genreTab.Name = "genreTab";
@@ -918,14 +914,6 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(121, 20);
             this.textBox5.TabIndex = 56;
-            // 
-            // genresDescriptionrichTextBox
-            // 
-            this.genresDescriptionrichTextBox.Location = new System.Drawing.Point(11, 58);
-            this.genresDescriptionrichTextBox.Name = "genresDescriptionrichTextBox";
-            this.genresDescriptionrichTextBox.Size = new System.Drawing.Size(222, 132);
-            this.genresDescriptionrichTextBox.TabIndex = 47;
-            this.genresDescriptionrichTextBox.Text = "";
             // 
             // genresShowallButton
             // 
@@ -969,7 +957,7 @@
             // 
             // genresNametextBox
             // 
-            this.genresNametextBox.Location = new System.Drawing.Point(11, 19);
+            this.genresNametextBox.Location = new System.Drawing.Point(33, 68);
             this.genresNametextBox.Name = "genresNametextBox";
             this.genresNametextBox.Size = new System.Drawing.Size(100, 20);
             this.genresNametextBox.TabIndex = 42;
@@ -977,20 +965,11 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(8, 3);
+            this.label19.Location = new System.Drawing.Point(30, 52);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(24, 13);
             this.label19.TabIndex = 40;
             this.label19.Text = "Ime";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 42);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(28, 13);
-            this.label20.TabIndex = 41;
-            this.label20.Text = "Opis";
             // 
             // genreslistBox
             // 
@@ -1038,8 +1017,8 @@
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.textBox8);
-            this.tabPage2.Controls.Add(this.textBox7);
+            this.tabPage2.Controls.Add(this.passwordChangeTextboxV2);
+            this.tabPage2.Controls.Add(this.passwordChangeTextbox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -1056,6 +1035,7 @@
             this.changePasswordButton.TabIndex = 7;
             this.changePasswordButton.Text = "Vredu";
             this.changePasswordButton.UseVisualStyleBackColor = true;
+            this.changePasswordButton.Click += new System.EventHandler(this.changePasswordButton_Click);
             // 
             // label23
             // 
@@ -1092,45 +1072,19 @@
             this.comboBox1.Size = new System.Drawing.Size(188, 21);
             this.comboBox1.TabIndex = 3;
             // 
-            // textBox8
+            // passwordChangeTextboxV2
             // 
-            this.textBox8.Location = new System.Drawing.Point(334, 197);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(188, 20);
-            this.textBox8.TabIndex = 2;
+            this.passwordChangeTextboxV2.Location = new System.Drawing.Point(334, 197);
+            this.passwordChangeTextboxV2.Name = "passwordChangeTextboxV2";
+            this.passwordChangeTextboxV2.Size = new System.Drawing.Size(188, 20);
+            this.passwordChangeTextboxV2.TabIndex = 2;
             // 
-            // textBox7
+            // passwordChangeTextbox
             // 
-            this.textBox7.Location = new System.Drawing.Point(334, 157);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(188, 20);
-            this.textBox7.TabIndex = 1;
-            // 
-            // yearTextBox
-            // 
-            this.yearTextBox.Location = new System.Drawing.Point(9, 117);
-            this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.Size = new System.Drawing.Size(121, 20);
-            this.yearTextBox.TabIndex = 57;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 104);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Leto izdaje";
-            // 
-            // lostBookCheckBox
-            // 
-            this.lostBookCheckBox.AutoSize = true;
-            this.lostBookCheckBox.Location = new System.Drawing.Point(9, 143);
-            this.lostBookCheckBox.Name = "lostBookCheckBox";
-            this.lostBookCheckBox.Size = new System.Drawing.Size(74, 17);
-            this.lostBookCheckBox.TabIndex = 59;
-            this.lostBookCheckBox.Text = "Izgubljeno";
-            this.lostBookCheckBox.UseVisualStyleBackColor = true;
+            this.passwordChangeTextbox.Location = new System.Drawing.Point(334, 157);
+            this.passwordChangeTextbox.Name = "passwordChangeTextbox";
+            this.passwordChangeTextbox.Size = new System.Drawing.Size(188, 20);
+            this.passwordChangeTextbox.TabIndex = 1;
             // 
             // Form1
             // 
@@ -1165,9 +1119,7 @@
 
         private System.Windows.Forms.TabPage Član;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TabPage AddaBookTabPage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox summaryTextBox;
@@ -1199,10 +1151,8 @@
         private System.Windows.Forms.Button authorsUpdateButton;
         private System.Windows.Forms.Button authorsDeleteButton;
         private System.Windows.Forms.Button authorsAddButton;
-        private System.Windows.Forms.TextBox authorsMiddlenameTextBox;
         private System.Windows.Forms.TextBox authorsNameTextBox;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox authorsListbox;
         private System.Windows.Forms.TextBox authorsSurnameTextBox;
         private System.Windows.Forms.Label label17;
@@ -1212,18 +1162,14 @@
         private System.Windows.Forms.Button publishersAddButton;
         private System.Windows.Forms.TextBox publishersNameTextBox;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label publishersRichTextBox;
         private System.Windows.Forms.ListBox publishersListBox;
-        private System.Windows.Forms.RichTextBox publishersDescriptionRichTextBox;
         private System.Windows.Forms.TabPage genreTab;
-        private System.Windows.Forms.RichTextBox genresDescriptionrichTextBox;
         private System.Windows.Forms.Button genresShowallButton;
         private System.Windows.Forms.Button genresUpdateButton;
         private System.Windows.Forms.Button genresDeleteButton;
         private System.Windows.Forms.Button genresAddButton;
         private System.Windows.Forms.TextBox genresNametextBox;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ListBox genreslistBox;
         private System.Windows.Forms.Button booksShowAllButton;
         private System.Windows.Forms.Button booksUpdateButton;
@@ -1244,10 +1190,10 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button returnBookButton;
+        private System.Windows.Forms.Button returnAllBooksButton;
+        private System.Windows.Forms.ListBox userLendedBookslistBox;
+        private System.Windows.Forms.ListBox userUnLendedBookslistBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabPage tabPage2;
@@ -1255,15 +1201,18 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox passwordChangeTextboxV2;
+        private System.Windows.Forms.TextBox passwordChangeTextbox;
         private System.Windows.Forms.Button changePasswordButton;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button editUserButton;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox yearTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox lostBookCheckBox;
+        private System.Windows.Forms.Button registerUserButton;
+        private System.Windows.Forms.ComboBox userShowcomboBox;
+        private System.Windows.Forms.Button deleteUserButton;
     }
 }
 

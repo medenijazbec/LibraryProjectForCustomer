@@ -13,52 +13,6 @@ namespace theLibraryProject
 {
     public class databaseController
     {
-        #region BooksGenres
-        public void SaveBooksGenres(Book_Genres Book_GenresToSave)
-        {
-            // List<string> listOfLocations = new List<string>();
-            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
-            {
-                con.Open();
-                string query = "INSERT INTO book_genres (book_id, genre_id) VALUES((SELECT id_b FROM books WHERE id_b='" + Book_GenresToSave.book_id + "'), (SELECT id_g FROM genres WHERE id_g='" + Book_GenresToSave.genre_id + "'));";
-                SQLiteCommand com = new SQLiteCommand(query, con);
-                com.ExecuteNonQuery();
-                com.Dispose();
-                con.Close();
-
-            }
-        }
-
-        public void DeleteBooksGenres(Book_Genres Book_GenresToDelete)
-        {
-            //List<string> listOfLocations = new List<string>();
-            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
-            {
-                con.Open();
-                string query = "DELETE FROM book_genres WHERE(book_id='" + Book_GenresToDelete.book_id + "');";
-                SQLiteCommand com = new SQLiteCommand(query, con);
-                com.ExecuteNonQuery();
-                com.Dispose();
-                con.Close();
-            }
-        }
-
-        public void UpdateBooksGenres(Book_Genres Book_GenresToUpdate)
-        {
-            //List<string> listOfLocations = new List<string>();
-            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
-            {
-                con.Open();
-                string query = "UPDATE book_genres SET genre_id='" + Book_GenresToUpdate.genre_id + "'WHERE book_id='" + Book_GenresToUpdate.book_id + "';";
-                SQLiteCommand com = new SQLiteCommand(query, con);
-                com.ExecuteNonQuery();
-                com.Dispose();
-                con.Close();
-
-            }
-        }
-        #endregion
-
         #region BooksAuthors
         public void SaveBooksAuthors(Book_Authors Book_AuthorsToSave)
         {
@@ -66,7 +20,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "INSERT INTO book_authors (book_id, author_id) VALUES((SELECT id_b FROM books WHERE id_b='" + Book_AuthorsToSave.book_id + "'), (SELECT id_a FROM authors WHERE id_a='" + Book_AuthorsToSave.author_id + "'));";
+                string query = "INSERT INTO book_authors (author_id, book_id) VALUES((SELECT id_a FROM authors WHERE id_a='" + Book_AuthorsToSave.author_id + "'), (SELECT id_b FROM books WHERE id_b='" + Book_AuthorsToSave.book_id + "'));";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -81,7 +35,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "DELETE FROM book_authors WHERE(book_id='" + Book_AuthorsToDelete.book_id + "');";
+                string query = "DELETE FROM book_authors WHERE(book_id='" + Book_AuthorsToDelete.book_id + "' AND author_id='" + Book_AuthorsToDelete.author_id + "');";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -95,7 +49,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "UPDATE book_authors SET author_id='" + Book_AuthorsToUpdate.author_id + "' WHERE book_id='" + Book_AuthorsToUpdate.book_id + "';";
+                string query = "UPDATE book_authors SET author_id='" + Book_AuthorsToUpdate.author_id + "', book_id='" + Book_AuthorsToUpdate.book_id + "' WHERE(SELECT id_b FROM books WHERE(id_b='" + Book_AuthorsToUpdate.book_id + "'));";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -103,9 +57,28 @@ namespace theLibraryProject
 
             }
         }
+        public List<int> ReadAuthorsID(Book_Authors Book_AuthorsToGetID)
+        {
+            List<int> listOfAuthorsID = new List<int>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT author_id FROM book_authors WHERE book_id='" + Book_AuthorsToGetID.book_id + "';";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                  
+                    listOfAuthorsID.Add(id);
+                }
+                con.Close();
+                return listOfAuthorsID;
+            }
+        }
+
 
         #endregion
-
 
         #region Books
         public List<string> ReadBooks()
@@ -121,14 +94,15 @@ namespace theLibraryProject
                 {
                     int id = reader.GetInt32(0);
                     string title = reader.GetString(1);
-                    int total_pages = reader.GetInt32(2);
-                    int rating = reader.GetInt32(3);
-                    string summary = reader.GetString(5);
+                    string summary = reader.GetString(2);
+                    string year = reader.GetString(3);
+                    int lost = reader.GetInt32(4);
+                    int genre_id = reader.GetInt32(5);
                     int publisher_id = reader.GetInt32(6);
-                    int location_id = reader.GetInt32(7);
 
-                    listOfBooks.Add(id + " | " + title + " | " + total_pages + " | " +rating + " | " + " | " + summary + " | " +publisher_id + " | " +location_id);
+                    listOfBooks.Add(id + " | " + title + " | " + summary + " | " +year + " | " +lost+ " | " +genre_id + " | " +publisher_id);
                 }
+                com.Dispose();
                 con.Close();
                 return listOfBooks;
             }
@@ -141,7 +115,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "INSERT INTO books (title, summary, year, lost, genre_id) VALUES('" + BooksToSave.title + "', '" + BooksToSave.summary + "', '" + BooksToSave.year + "', '" + BooksToSave.lost + "', '" + BooksToSave.genre_id;
+                string query = "INSERT INTO books (title, summary, year, lost, genre_id, publisher_id) VALUES('" + BooksToSave.title + "','" + BooksToSave.summary + "','" + BooksToSave.year + "','" + BooksToSave.lost + "','" + BooksToSave.genre_id + "','" + BooksToSave.publisher_id + "');";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -168,7 +142,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "UPDATE books SET title='" + BooksToUpdate.title + "', summary='" + BooksToUpdate.summary + "', year='" + BooksToUpdate.year + "', lost='" + BooksToUpdate.summary + "', genre_id=(SELECT id_g FROM genres WHERE id_g='" + BooksToUpdate.genre_id + "') WHERE id_b='" + BooksToUpdate.id_b + "';";
+                string query = "UPDATE books SET title='" + BooksToUpdate.title + "', summary='" + BooksToUpdate.summary + "', year='" + BooksToUpdate.year + "', lost='" + BooksToUpdate.lost + "', genre_id=(SELECT id_g FROM genre WHERE id_g='" + BooksToUpdate.genre_id + "') WHERE id_b='" + BooksToUpdate.id_b + "';";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -178,8 +152,6 @@ namespace theLibraryProject
         }
 
         #endregion
-
-
 
         #region Locations
         public List<string> ReadLocations()
@@ -262,8 +234,8 @@ namespace theLibraryProject
                 {
                     int id = reader.GetInt32(0);
                     string name = reader.GetString(1);
-                    string description = reader.GetString(2);
-                    listOfPublishers.Add(id + " | " + name + " | " + description);
+                    
+                    listOfPublishers.Add(id + " | " + name);
                 }
                 con.Close();
                 return listOfPublishers;
@@ -328,8 +300,8 @@ namespace theLibraryProject
                     int id = reader.GetInt32(0);
                     string name = reader.GetString(1);
                     string surname = reader.GetString(2);
-                    string middlename = reader.GetString(3);
-                    listOfAuthors.Add(id + " | " + name + " | " + surname + " | " + middlename);
+                    
+                    listOfAuthors.Add(id + " | " + name + " | " + surname);
                 }
                 con.Close();
                 return listOfAuthors;
@@ -386,15 +358,14 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "SELECT * FROM genres";
+                string query = "SELECT * FROM genre";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 SQLiteDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
                     int id = reader.GetInt32(0);
-                    string name = reader.GetString(1);
-                    string description = reader.GetString(2);
-                    listOfPublishers.Add(id + " | " + name + " | " + description);
+                    string genretype = reader.GetString(1);
+                    listOfPublishers.Add(id + " | " + genretype);
                 }
                 con.Close();
                 return listOfPublishers;
@@ -407,7 +378,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "INSERT INTO genres (genre_type) VALUES('" + GenresToSave.genreType + "');";
+                string query = "INSERT INTO genre (genretype) VALUES('" + GenresToSave.genreType + "');";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -421,7 +392,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "DELETE FROM genres WHERE(id_g='" + GenresToDelete.id_g + "');";
+                string query = "DELETE FROM genre WHERE(id_g='" + GenresToDelete.id_g + "');";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -434,7 +405,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "UPDATE genres SET genre_type='" + GenresToUpdate.genreType + "' WHERE(id_p='" + GenresToUpdate.id_g + "');";
+                string query = "UPDATE genre SET genretype='" + GenresToUpdate.genreType + "' WHERE(id_p='" + GenresToUpdate.id_g + "');";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -445,7 +416,154 @@ namespace theLibraryProject
 
         #endregion
 
+        #region Rents
+
+        public List<string> ReadRents()
+        {
+            List<string> listOfRents = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT * FROM books";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    int state = reader.GetInt32(1); 
+                    string date = reader.GetString(2);
+                    int book_id = reader.GetInt32(3);
+                    int user_id = reader.GetInt32(4);
+
+                    listOfRents.Add(id + " | " + state + " | " + date + " | " + book_id + " | " + user_id);
+                }
+                con.Close();
+                return listOfRents;
+            }
+        }
 
 
+        public void SaveRents(Rents RentsToSave)
+        {
+            List<string> listOfRents = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "INSERT INTO rents (state, date, book_id, user_id) VALUES('" + RentsToSave.state + "', '" + RentsToSave.date + "', '" + RentsToSave.book_id + "', '" + RentsToSave.user_id;
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                com.ExecuteNonQuery();
+                com.Dispose();
+                con.Close();
+            }
+        }
+
+        public void DeleteRents(Rents RentsToDelete)
+        {
+            //List<string> listOfLocations = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "DELETE FROM rents WHERE(id_r='" + RentsToDelete.id_r + "');";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                com.ExecuteNonQuery();
+                com.Dispose();
+                con.Close();
+            }
+        }
+        public void UpdateRents(Rents RentsToUpdate)
+        {
+            //List<string> listOfLocations = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "UPDATE rents SET state='" + RentsToUpdate.state + "', date='" + RentsToUpdate.date + "', book_id=(SELECT id_b FROM books WHERE id_b='" + RentsToUpdate.book_id + "'), user_id=(SELECT id_u FROM users WHERE id_u='" + RentsToUpdate.user_id + "')  WHERE id_r='" + RentsToUpdate.id_r + "';";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                com.ExecuteNonQuery();
+                com.Dispose();
+                con.Close();
+
+            }
+        }
+
+
+
+
+        #endregion
+
+        #region Users
+        public List<string> ReadUsers()
+        {
+            List<string> listOfBooks = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT * FROM users";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetString(1);
+                    string surname = reader.GetString(2);
+                    string tel = reader.GetString(3);
+                    string address = reader.GetString(4);
+                    string email = reader.GetString(5);
+                    string username = reader.GetString(6);
+                    string password = reader.GetString(7);
+                    string notes = reader.GetString(8);
+                    int location_id = reader.GetInt32(9);
+
+                    listOfBooks.Add(id + " | " + name + " | " + surname + " | " + tel + " | " + address + " | " + email + " | " + username + " | " + password + " | " + notes + " | " + location_id);
+                }
+                com.Dispose();
+                con.Close();
+                return listOfBooks;
+            }
+        }
+
+
+        public void SaveUsers(Users UsersToSave)
+        {
+            List<string> listOfBooks = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "INSERT INTO users (name, surname, tel, address, email, username, password, notes, location_id) VALUES('" + UsersToSave.name + "','" + UsersToSave.surname + "','" + UsersToSave.tel + "','" + UsersToSave.address + "','" + UsersToSave.email + "','" + UsersToSave.username + "','" + UsersToSave.password + "','" + UsersToSave.notes + "','" + UsersToSave.location_id + "');";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                com.ExecuteNonQuery();
+                com.Dispose();
+                con.Close();
+            }
+        }
+
+        public void DeleteUsers(Users UsersToDelete)
+        {
+            //List<string> listOfLocations = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "DELETE FROM users WHERE(id_u='" + UsersToDelete.id_u + "');";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                com.ExecuteNonQuery();
+                com.Dispose();
+                con.Close();
+            }
+        }
+        public void UpdateUsers(Users UsersToUpdate)
+        {
+            //List<string> listOfLocations = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "UPDATE books SET name='" + UsersToUpdate.name + "', surname='" + UsersToUpdate.surname + "', tel='" + UsersToUpdate.tel + "', address='" + UsersToUpdate.address + "', email='" + UsersToUpdate.email + "', usrname='" + UsersToUpdate.username + "', password='" + UsersToUpdate.password + "', notes='" + UsersToUpdate.notes + "', location_id=(SELECT id_l FROM locations WHERE id_l='" + UsersToUpdate.location_id + "') WHERE id_u='" + UsersToUpdate.id_u + "';";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                com.ExecuteNonQuery();
+                com.Dispose();
+                con.Close();
+
+            }
+        }
+
+        #endregion
     }
 }

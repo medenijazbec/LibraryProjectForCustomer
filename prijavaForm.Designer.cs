@@ -104,6 +104,7 @@ namespace theLibraryProject
             this.Controls.Add(this.usernameLoginTextBox);
             this.Name = "prijavaForm";
             this.Text = "prijavaForm";
+            this.Load += new System.EventHandler(this.prijavaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
