@@ -778,20 +778,13 @@ namespace theLibraryProject
             string notes = UserID[8].Trim();
             int location_id = Convert.ToInt32(UserID[9].Trim());
 
+            
+            userUpdateForm ab = new userUpdateForm(id_u, name, surname, tel, address, email, username, password, notes, location_id);
+
+            
             a.Show();
             userShowcomboBox.Items.Clear();
             OutputUsers();
-            userUpdateForm ad = new userUpdateForm(id_u, name, surname, tel, address, email, username, password, notes, location_id);
-
-
-
-
-
-
-
-
-
-
 
         }
 
