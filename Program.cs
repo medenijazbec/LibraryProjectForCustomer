@@ -16,7 +16,7 @@ namespace theLibraryProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new prijavaForm());
+            Application.Run(new loginForm());
         }
     }
 }

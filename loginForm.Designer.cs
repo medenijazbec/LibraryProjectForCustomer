@@ -1,7 +1,7 @@
 ﻿
 namespace theLibraryProject
 {
-    partial class prijavaForm
+    partial class loginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -92,7 +92,7 @@ namespace theLibraryProject
             this.label2.TabIndex = 4;
             this.label2.Text = "Geslo";
             // 
-            // prijavaForm
+            // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,7 +102,7 @@ namespace theLibraryProject
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameLoginTextBox);
-            this.Name = "prijavaForm";
+            this.Name = "loginForm";
             this.Text = "prijavaForm";
             this.Load += new System.EventHandler(this.prijavaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

@@ -21,6 +21,11 @@ namespace theLibraryProject.Classes
 
         public int location_id { get; set; }
 
+        public Users(string _username)
+        {
+            username = _username;
+        }
+
         public Users(int _id_u, string _name, string _surname, string _tel, string _address, string _email, string _notes, int _location_id)
         {
             id_u = _id_u;

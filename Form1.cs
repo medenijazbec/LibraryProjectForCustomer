@@ -725,9 +725,9 @@ namespace theLibraryProject
 
 
         }
-#endregion
+        #endregion
 
-
+        #region Users
         //register user button
         private void button14_Click(object sender, EventArgs e)
         {
@@ -822,5 +822,6 @@ namespace theLibraryProject
             userShowcomboBox.Items.Clear();
             OutputUsers();
         }
+        #endregion
     }
 }

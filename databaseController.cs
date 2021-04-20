@@ -588,6 +588,27 @@ namespace theLibraryProject
             }
         }
 
+
+        public List<string> ReadUserLogin(Users UsersToReadLogin)
+        {
+            List<string> listOfUsers = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT password FROM users WHERE(username='" + UsersToReadLogin.username + "');";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {   
+                    string password = reader.GetString(0);
+                    listOfUsers.Add(password);
+                }
+                com.Dispose();
+                con.Close();
+                return listOfUsers;
+            }
+        }
+
         #endregion
     }
 }

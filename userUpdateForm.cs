@@ -23,51 +23,7 @@ namespace theLibraryProject
             OutputLocations();
 
         }
-  
-        public userUpdateForm(int _id, string _name, string _surname, string _tel, string _address, string _email, string _username, string _password, string _notes, int _location_id)
-        {/*
-            databaseController dbc = new databaseController();
-            int id_u = _id;
-
-
-
-            nameTextBox.Text = _name;
-            surnameTextBox.Text = _surname;
-            telTextBox.Text = _tel;
-            addressTextBox.Text = _address;
-            emailTextBox.Text = _email;
-            usernameTextBox.Text = _username;
-            passwordChangeTextbox.Text = _password;
-            passwordChangeTextboxV2.Text = _password;
-            richTextBox1.Text = _notes;
-
-            
-            string name = _name;
-            string surname = _surname; 
-            string tel = _tel; 
-            string address = _address;
-            string email= _email;
-            string username = _username;
-            string password = _password;
-            string notes = _notes;
-            int location_id = _location_id;
-
-            
-            nameTextBox.Text = name;
-            surnameTextBox.Text=surname ;
-            telTextBox.Text=tel;
-            addressTextBox.Text=address;
-            emailTextBox.Text=email;
-            usernameTextBox.Text=username;
-            passwordChangeTextbox.Text=password;
-            passwordChangeTextboxV2.Text=password;
-            richTextBox1.Text=notes;
-            
-            Locations readid = new Locations(_location_id, _name);
-            dbc.ReadLocationsID(readid);*/
-        }
-       
-        
+ 
         databaseController db = new databaseController();
         public void OutputLocations()
         {
