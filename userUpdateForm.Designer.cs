@@ -277,6 +277,7 @@ namespace theLibraryProject
             this.Controls.Add(this.userEditGroupBox);
             this.Name = "userUpdateForm";
             this.Text = "userUpdateForm";
+            this.Load += new System.EventHandler(this.userUpdateForm_Load);
             this.userEditGroupBox.ResumeLayout(false);
             this.userEditGroupBox.PerformLayout();
             this.ResumeLayout(false);

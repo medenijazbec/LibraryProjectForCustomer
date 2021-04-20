@@ -34,7 +34,18 @@ namespace theLibraryProject
             OutputUsers();
             //SELECT b.title, b.total_pages, b.rating, b.publish_date, b.summary, a.name, a.surname, g.genre_type, g.description FROM authors a INNER JOIN book_authors q ON q.author_id=a.id_a INNER JOIN books b ON q.book_id=b.id_b INNER JOIN book_genres w ON w.book_id=b.id_b INNER JOIN genres g ON g.id_g=w.genre_id;  
         }
-
+        public static int user_id_u = 0;
+        public static string name = "";
+        public static string surname = "";
+        public static string tel = "";
+        public static string address = "";
+        public static string email = "";
+        public static string username = "";
+        public static string passwordV1 = "";
+        public static string passwordV2 = "";
+        public static string notes = "";
+        public static int user_location_id=0;
+   
         #region LocationControlls
 
         databaseController db = new databaseController();
@@ -767,19 +778,20 @@ namespace theLibraryProject
             string selectedUser = userShowcomboBox.SelectedItem.ToString();//exception needs to be handled
             selectedUser = selectedUser.Trim();
             string[] UserID = selectedUser.Split('|');
-            int id_u = Convert.ToInt32(UserID[0].Trim());
-            string name = UserID[1].Trim();//user's name
-            string surname = UserID[2].Trim();
-            string tel = UserID[3].Trim();
-            string address = UserID[4].Trim();
-            string email = UserID[5].Trim();
-            string username = UserID[6].Trim();
-            string password = UserID[7].Trim();
-            string notes = UserID[8].Trim();
-            int location_id = Convert.ToInt32(UserID[9].Trim());
+            user_id_u = Convert.ToInt32(UserID[0].Trim());
+            name = UserID[1].Trim();//user's name
+            surname = UserID[2].Trim();
+            tel = UserID[3].Trim();
+            address = UserID[4].Trim();
+            email = UserID[5].Trim();
+            username = UserID[6].Trim();
+            passwordV1 = UserID[7].Trim();
+            passwordV2 = passwordV1;
+            notes = UserID[8].Trim();
+            user_location_id = Convert.ToInt32(UserID[9].Trim());
 
             
-            userUpdateForm ab = new userUpdateForm(id_u, name, surname, tel, address, email, username, password, notes, location_id);
+            //userUpdateForm ab = new userUpdateForm(id_u, name, surname, tel, address, email, username, password, notes, location_id);
 
             
             a.Show();

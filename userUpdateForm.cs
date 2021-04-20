@@ -25,12 +25,12 @@ namespace theLibraryProject
         }
   
         public userUpdateForm(int _id, string _name, string _surname, string _tel, string _address, string _email, string _username, string _password, string _notes, int _location_id)
-        {
+        {/*
             databaseController dbc = new databaseController();
             int id_u = _id;
 
 
-/*
+
             nameTextBox.Text = _name;
             surnameTextBox.Text = _surname;
             telTextBox.Text = _tel;
@@ -40,7 +40,7 @@ namespace theLibraryProject
             passwordChangeTextbox.Text = _password;
             passwordChangeTextboxV2.Text = _password;
             richTextBox1.Text = _notes;
-*/
+
             
             string name = _name;
             string surname = _surname; 
@@ -64,9 +64,9 @@ namespace theLibraryProject
             richTextBox1.Text=notes;
             
             Locations readid = new Locations(_location_id, _name);
-            dbc.ReadLocationsID(readid);
+            dbc.ReadLocationsID(readid);*/
         }
-
+       
         
         databaseController db = new databaseController();
         public void OutputLocations()
@@ -178,6 +178,28 @@ namespace theLibraryProject
                 passwordChangeTextbox.Enabled = false;
                 passwordChangeTextboxV2.Enabled = false;
             }
+        }
+
+        private void userUpdateForm_Load(object sender, EventArgs e)
+        {
+            databaseController dbc = new databaseController();
+            nameTextBox.Text = Form1.name;
+            surnameTextBox.Text = Form1.surname;
+            telTextBox.Text = Form1.tel;
+            addressTextBox.Text = Form1.address;
+            emailTextBox.Text = Form1.email;
+            usernameTextBox.Text = Form1.username;
+            passwordChangeTextbox.Text = Form1.passwordV1;
+            passwordChangeTextboxV2.Text = Form1.passwordV2;
+            richTextBox1.Text = Form1.notes;
+
+            int id_u = Form1.user_id_u;
+            int location_id = Form1.user_location_id;
+
+            Locations readid = new Locations(Form1.user_location_id, Form1.name);
+            dbc.ReadLocationsID(readid); 
+
+
         }
     }
 }
