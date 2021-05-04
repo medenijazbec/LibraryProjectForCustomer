@@ -31,6 +31,8 @@ namespace theLibraryProject
             OutputPublishersOnBooks();
             OutputAuthorsOnBooks();
             OutputUsers();
+            OutputBooksOnRents_Lended();
+            OutputBooksOnRents_UnLended();
             //SELECT b.title, b.total_pages, b.rating, b.publish_date, b.summary, a.name, a.surname, g.genre_type, g.description FROM authors a INNER JOIN book_authors q ON q.author_id=a.id_a INNER JOIN books b ON q.book_id=b.id_b INNER JOIN book_genres w ON w.book_id=b.id_b INNER JOIN genres g ON g.id_g=w.genre_id;  
         }
         #region StaticFieldsForEditUser
@@ -376,6 +378,21 @@ namespace theLibraryProject
                 bookslistBox.Items.Add(name);
             }
         }
+        public void OutputBooksOnRents_Lended()
+        {
+            foreach (string name in db.ReadBooks())
+            {
+                userLendedBookslistBox.Items.Add(name);
+            }
+        }
+        public void OutputBooksOnRents_UnLended()
+        {
+            foreach (string name in db.ReadBooks())
+            {
+                userUnLendedBookslistBox.Items.Add(name);
+            }
+        }
+
         #endregion
         static string Encrypt(string password)
         {
@@ -607,6 +624,7 @@ namespace theLibraryProject
             summaryTextBox.Text = summary.ToString();
         }
         #endregion
+
         #region Users
         //register user button
         private void button14_Click(object sender, EventArgs e)

@@ -404,7 +404,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "UPDATE genre SET genretype='" + GenresToUpdate.genreType + "' WHERE(id_p='" + GenresToUpdate.id_g + "');";
+                string query = "UPDATE genre SET genretype='" + GenresToUpdate.genreType + "' WHERE(id_g='" + GenresToUpdate.id_g + "');";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
