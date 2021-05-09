@@ -75,6 +75,86 @@ namespace theLibraryProject
 
         #endregion
 
+        #region ReadIDs
+        
+        public List<int> idLocations(Locations ToReadIDs)
+        {
+            List<int> listOfIDs = new List<int>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT id_l FROM locations WHERE name='" + ToReadIDs.name + "'";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    listOfIDs.Add(id);
+                }
+                com.Dispose();
+                con.Close();
+                return listOfIDs;
+            }
+        }
+        public List<int> idAuthors(Authors ToReadIDs)
+        {
+            List<int> listOfIDs = new List<int>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT id_a FROM authors WHERE name='" + ToReadIDs.name + "' AND surname='" + ToReadIDs.surname + "'";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    listOfIDs.Add(id);
+                }
+                com.Dispose();
+                con.Close();
+                return listOfIDs;
+            }
+        }
+        public List<int> idPublishers(Publishers ToReadIDs)
+        {
+            List<int> listOfIDs = new List<int>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT id_p FROM publishers WHERE name='" + ToReadIDs.name + "'";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    listOfIDs.Add(id);
+                }
+                com.Dispose();
+                con.Close();
+                return listOfIDs;
+            }
+        }
+        public List<int> idGenres(Genres ToReadIDs)
+        {
+            List<int> listOfIDs = new List<int>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT id_g FROM genre WHERE genretype='" + ToReadIDs.genreType + "'";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    listOfIDs.Add(id);
+                }
+                com.Dispose();
+                con.Close();
+                return listOfIDs;
+            }
+        }
+        #endregion
+
         #region Books
         public List<string> ReadBooks()
         {
@@ -82,19 +162,28 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "SELECT * FROM books";
+                //string query = "SELECT b.title, b.year, b.lost, a.name, a.surname, g.genretype, p.publishers, l.name FROM books";
+                string query = "SELECT b.id_b, b.title, a.name, a.surname, b.lost, b.year, l.name, p.name, g.genretype FROM books b INNER JOIN genre g ON g.id_g=b.genre_id INNER JOIN publishers p ON p.id_p=b.publisher_id INNER JOIN locations l ON l.id_l=b.book_location_id INNER JOIN book_authors s ON s.book_id=b.id_b INNER JOIN authors a ON a.id_a=s.author_id; ";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 SQLiteDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
                     int id = reader.GetInt32(0);
                     string title = reader.GetString(1);
-                    string summary = reader.GetString(2);
-                    string year = reader.GetString(3);
+                    string author_name = reader.GetString(2);
+                    string author_surname = reader.GetString(3);
                     int lost = reader.GetInt32(4);
-                    int genre_id = reader.GetInt32(5);
-                    int publisher_id = reader.GetInt32(6);
-                    listOfBooks.Add(id + " | " + title + " | " + summary + " | " +year + " | " +lost+ " | " +genre_id + " | " +publisher_id);
+                    string year = reader.GetString(5);
+                    string location_name = reader.GetString(6);
+                    string publisher_name = reader.GetString(7);
+                    string genretype = reader.GetString(8);
+                    //int genre_id = reader.GetInt32(5);
+                    //int publisher_id = reader.GetInt32(6);
+
+
+
+
+                    listOfBooks.Add(id + " | " + title + " | "+author_name + " | "+author_surname+ " | " + lost + " | " +year + " | " +location_name+ " | " +publisher_name + " | " +genretype);
                 }
                 com.Dispose();
                 con.Close();
@@ -109,7 +198,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "INSERT INTO books (title, summary, year, lost, genre_id, publisher_id) VALUES('" + BooksToSave.title + "','" + BooksToSave.summary + "','" + BooksToSave.year + "','" + BooksToSave.lost + "','" + BooksToSave.genre_id + "','" + BooksToSave.publisher_id + "');";
+                string query = "INSERT INTO books (title, summary, year, lost, genre_id, publisher_id, book_location_id) VALUES('" + BooksToSave.title + "','" + BooksToSave.summary + "','" + BooksToSave.year + "','" + BooksToSave.lost + "','" + BooksToSave.genre_id + "','" + BooksToSave.publisher_id + "','" + BooksToSave.location_id + "');";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();
@@ -136,7 +225,7 @@ namespace theLibraryProject
             using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
             {
                 con.Open();
-                string query = "UPDATE books SET title='" + BooksToUpdate.title + "', summary='" + BooksToUpdate.summary + "', year='" + BooksToUpdate.year + "', lost='" + BooksToUpdate.lost + "', genre_id=(SELECT id_g FROM genre WHERE id_g='" + BooksToUpdate.genre_id + "') WHERE id_b='" + BooksToUpdate.id_b + "';";
+                string query = "UPDATE books SET title='" + BooksToUpdate.title + "', summary='" + BooksToUpdate.summary + "', year='" + BooksToUpdate.year + "', lost='" + BooksToUpdate.lost + "', genre_id=(SELECT id_g FROM genre WHERE id_g='" + BooksToUpdate.genre_id + "'), publisher_id=(SELECT id_p FROM publishers WHERE id_p='" + BooksToUpdate.publisher_id + "'), book_location_id=(SELECT id_l FROM locations WHERE id_l='" + BooksToUpdate.location_id + "') WHERE id_b='" + BooksToUpdate.id_b + "';";
                 SQLiteCommand com = new SQLiteCommand(query, con);
                 com.ExecuteNonQuery();
                 com.Dispose();

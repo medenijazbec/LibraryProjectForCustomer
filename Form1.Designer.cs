@@ -41,7 +41,7 @@
             this.returnAllBooksButton = new System.Windows.Forms.Button();
             this.userLendedBookslistBox = new System.Windows.Forms.ListBox();
             this.returnBookButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.rentABookButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.AddaBookTabPage = new System.Windows.Forms.TabPage();
@@ -150,7 +150,7 @@
             this.Član.Controls.Add(this.returnAllBooksButton);
             this.Član.Controls.Add(this.userLendedBookslistBox);
             this.Član.Controls.Add(this.returnBookButton);
-            this.Član.Controls.Add(this.button3);
+            this.Član.Controls.Add(this.rentABookButton);
             this.Član.Controls.Add(this.label11);
             this.Član.Controls.Add(this.label10);
             this.Član.Location = new System.Drawing.Point(4, 22);
@@ -267,14 +267,15 @@
             this.returnBookButton.Text = "Vrni";
             this.returnBookButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // rentABookButton
             // 
-            this.button3.Location = new System.Drawing.Point(756, 345);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Izposoja";
-            this.button3.UseVisualStyleBackColor = true;
+            this.rentABookButton.Location = new System.Drawing.Point(756, 345);
+            this.rentABookButton.Name = "rentABookButton";
+            this.rentABookButton.Size = new System.Drawing.Size(75, 23);
+            this.rentABookButton.TabIndex = 5;
+            this.rentABookButton.Text = "Izposoja";
+            this.rentABookButton.UseVisualStyleBackColor = true;
+            this.rentABookButton.Click += new System.EventHandler(this.rentABookButton_Click);
             // 
             // label11
             // 
@@ -1189,7 +1190,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button rentABookButton;
         private System.Windows.Forms.Button returnBookButton;
         private System.Windows.Forms.Button returnAllBooksButton;
         private System.Windows.Forms.ListBox userLendedBookslistBox;
