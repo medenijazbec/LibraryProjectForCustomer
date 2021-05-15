@@ -31,10 +31,10 @@ namespace theLibraryProject
             OutputPublishersOnBooks();
             OutputAuthorsOnBooks();
             OutputUsers();
-            OutputBooksOnRents_Lended();
             OutputBooksOnRents_UnLended();
-            //SELECT b.title, b.total_pages, b.rating, b.publish_date, b.summary, a.name, a.surname, g.genre_type, g.description FROM authors a INNER JOIN book_authors q ON q.author_id=a.id_a INNER JOIN books b ON q.book_id=b.id_b INNER JOIN book_genres w ON w.book_id=b.id_b INNER JOIN genres g ON g.id_g=w.genre_id;  
+
         }
+        
         static string Encrypt(string password)
         {
             using (SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider())
@@ -350,7 +350,6 @@ namespace theLibraryProject
         }
         #endregion
 
-        #region Books
         #region FunctionsForBooks
         public void OutputLocationsOnBooks()
         {
@@ -388,16 +387,16 @@ namespace theLibraryProject
                 bookslistBox.Items.Add(name);
             }
         }
-        public void OutputBooksOnRents_Lended()
-        {
-            foreach (string name in db.ReadBooks())
-            {
-                userLendedBookslistBox.Items.Add(name);
-            }
-        }
+        /*   public void OutputBooksOnRents_Lended()
+           {
+               foreach (string name in db.ReadRents())
+               {
+                   userLendedBookslistBox.Items.Add(name);
+               }
+           }*/
         public void OutputBooksOnRents_UnLended()
         {
-            foreach (string name in db.ReadBooks())
+            foreach (string name in db.ReadUnlendedBooks())
             {
                 userUnLendedBookslistBox.Items.Add(name);
             }
@@ -405,7 +404,10 @@ namespace theLibraryProject
 
         #endregion
 
-        
+        #region Books
+
+
+
         private void booksShowAllButton_Click(object sender, EventArgs e)
         {
             bookslistBox.Items.Clear();
@@ -431,10 +433,7 @@ namespace theLibraryProject
             selectedGenre1 = GenreID1[1].Trim();
 
             int genre_id = Convert.ToInt32(GenreID1[0].Trim());
-            //selectedGenre = genresNametextBox.Text;
-            //g_description = genresDescriptionrichTextBox.Text;
             #endregion
-
             #region publisher_id
             string selectedPublisher = publishersBooksCombobox.SelectedItem.ToString();//exception needs to be handled
             selectedPublisher = selectedPublisher.Trim();
@@ -445,23 +444,24 @@ namespace theLibraryProject
             selectedPublisher = publishersNameTextBox.Text;
             MessageBox.Show(Convert.ToString(publisher_id));
             #endregion
-
             #region location_id
             string selectedLocation = locationBooksCombobox.SelectedItem.ToString();//exception needs to be handled
             selectedLocation = selectedLocation.Trim();
             string[] LocationID = selectedLocation.Split('|');
             selectedLocation = LocationID[1].Trim();
             string postalcode = LocationID[2].Trim();
-            int location_id = Convert.ToInt32(LocationID[0].Trim());
-            MessageBox.Show(Convert.ToString(location_id));
+            int location_idd = Convert.ToInt32(LocationID[0].Trim());
+            MessageBox.Show("locationid"+Convert.ToString(location_idd)+selectedLocation+postalcode);
             #endregion
-
-            MessageBox.Show(Convert.ToInt32(id_b)+ title+ summary+ Convert.ToInt32(year)+ Convert.ToInt32(lost)+ Convert.ToInt32(genre_id)+ Convert.ToInt32(publisher_id)+ Convert.ToInt32(location_id));
-
-            Books b = new Books(id_b, title, summary, year, lost, genre_id, publisher_id, location_id);
-
+            Books b = new Books(id_b, title, summary, year, lost, genre_id, publisher_id, location_idd);
             dbc.SaveBooks(b);
 
+            dbc.idBooks(b);
+            int book_id = 0;
+            foreach (int k in dbc.idBooks(b))
+            {
+                book_id = k;
+            }
             //getting genre id
             #region genre_id
             string selectedGenre = genreBooksCombobox.SelectedItem.ToString();//exception needs to be handled
@@ -483,117 +483,96 @@ namespace theLibraryProject
             int id_a = Convert.ToInt32(AuthorID[0].Trim());
             #endregion
             //getting book_id
-            #region book_id
 
-            List<string> listOfBookss = new List<string>();
-            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
-            {
-                con.Open();
-                string query = "SELECT id_b FROM books WHERE(title='" + title + "' AND summary='" + summary + "' AND year='" + year + "' AND genre_id='" + id_g+ "' AND publisher_id='" + publisher_id + "')";
-                SQLiteCommand com = new SQLiteCommand(query, con);
-                SQLiteDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    int id_bb = reader.GetInt32(0);
-                    listOfBookss.Add(id_bb+""); 
-                }
-                con.Close(); 
-            }
-            string prvi = listOfBookss.ElementAt(0);
-            int idbb = Convert.ToInt32(prvi);
-            #endregion
-            Book_Authors ba = new Book_Authors(id_a, idbb);
+            Book_Authors ba = new Book_Authors(id_a, book_id);
             dbc.SaveBooksAuthors(ba);
- 
+            DateTime currentDateTime = DateTime.Now;
+            Rents rentss = new Rents(0, 0, Convert.ToString(currentDateTime), book_id, 0);
+            dbc.SaveBookRents(rentss);
             bookslistBox.Items.Clear();
             OutputBooks();
             userUnLendedBookslistBox.Items.Clear();
             userLendedBookslistBox.Items.Clear();
-            OutputBooksOnRents_Lended();
+            //OutputBooksOnRents_Lended();
             OutputBooksOnRents_UnLended();
         }
 
         private void booksUpdateButton_Click(object sender, EventArgs e)
         {
+            //SELECT b.id_b, b.title, a.name, a.surname, b.lost, b.year, l.name, p.name, g.genretype
             databaseController dbc = new databaseController();
             string selectedBook = bookslistBox.SelectedItem.ToString();//exception needs to be handled
-            MessageBox.Show(selectedBook);
             selectedBook = selectedBook.Trim();
             string[] BookID = selectedBook.Split('|');
-            selectedBook = BookID[1].Trim(); 
             int id_b = Convert.ToInt32(BookID[0].Trim());
-            string year = yearTextBox.Text;
-            int lost;
-            if (lostBookCheckBox.Checked)
-            {
-                lost = 1;
-            }
-            else
-            {
-                lost = 0;
-            }
-            string title = titleTextBox.Text;
-            string publish_date = Convert.ToString(DateTime.Now.Date.ToString("MM/dd/yyyy"));
-            string summary = Convert.ToString(summaryTextBox.Text);
-            //getting location id in bookstab
-            #region location_id
-            string selectedLocation = locationBooksCombobox.SelectedItem.ToString();//exception needs to be handled
-            selectedLocation = selectedLocation.Trim();
-            string[] LocationID = selectedLocation.Split('|');
-            selectedLocation = LocationID[1].Trim();
-            string postalcode = LocationID[2].Trim();
-            int location_id = Convert.ToInt32(LocationID[0].Trim());
+            selectedBook = BookID[1].Trim();//title
+            string author_name = BookID[2].Trim();
+            string author_surname = BookID[3].Trim();
+            int lost = Convert.ToInt32(BookID[4].Trim());
+            string year = BookID[5].Trim();
+            string location_name = BookID[6].Trim();
+            string publisher_name = BookID[7].Trim();
+            string genre_genretype = BookID[8].Trim();
+            int id_g = 0;
+            string summary = summaryTextBox.Text;
+
+            #region genre_id
+            string selectedGenre1 = genreBooksCombobox.SelectedItem.ToString();//exception needs to be handled
+            selectedGenre1 = selectedGenre1.Trim();
+            string[] GenreID1 = selectedGenre1.Split('|');
+            selectedGenre1 = GenreID1[1].Trim();
+            int genre_id = Convert.ToInt32(GenreID1[0].Trim());
             #endregion
-            //getting publisher id in books tab
+
             #region publisher_id
             string selectedPublisher = publishersBooksCombobox.SelectedItem.ToString();//exception needs to be handled
             selectedPublisher = selectedPublisher.Trim();
             string[] PublisherID = selectedPublisher.Split('|');
             selectedPublisher = PublisherID[1].Trim();
-            
             int publisher_id = Convert.ToInt32(PublisherID[0].Trim());
-            selectedPublisher = publishersNameTextBox.Text;
             
-            #endregion
-            //getting genre id
-            #region genre_id
-            
-            string selectedGenre = genreBooksCombobox.SelectedItem.ToString();//exception needs to be handled
-            selectedGenre = selectedGenre.Trim();
-            string[] GenreID = selectedGenre.Split('|');
-            selectedGenre = GenreID[1].Trim();
-           
-            int genre_id = Convert.ToInt32(GenreID[0].Trim());
-            int id_aa = 0;
-            #endregion
-            #region author_id
-            Book_Authors id = new Book_Authors(0, id_b);//g je sam zato k je
-            dbc.ReadAuthorsID(id);
-            int id_aaa = 0;
-            foreach (int k in dbc.ReadAuthorsID(id))
-            {
-                id_aaa = k;
-            }
-            MessageBox.Show("star id"+Convert.ToString(id_aaa));
-             string selectedAuthor = authorsBooksCombobox.SelectedItem.ToString();//exception needs to be handled
-            selectedAuthor = selectedAuthor.Trim();
-            string[] AuthorID = selectedAuthor.Split('|');
-            selectedAuthor = AuthorID[1].Trim();
-            string surname = AuthorID[2].Trim();
-            
-            int id_a = Convert.ToInt32(AuthorID[0].Trim());
             #endregion
 
-            
-            Book_Authors ba = new Book_Authors(id_a, id_b);
-            dbc.UpdateBooksAuthors(ba);         
-            Books b = new Books(id_b, title, summary, year, lost, genre_id, publisher_id, location_id);
+            #region location_id
+            string selectedLocation = locationBooksCombobox.SelectedItem.ToString();//exception needs to be handled
+            selectedLocation = selectedLocation.Trim();
+            string[] LocationID = selectedLocation.Split('|');
+            int location_id = Convert.ToInt32(LocationID[0].Trim());
+            #endregion
+
+            #region author_id
+            string selectedAuthor = authorsBooksCombobox.SelectedItem.ToString();//exception needs to be handled
+            selectedAuthor = selectedAuthor.Trim();
+            string[] AuthorID = selectedAuthor.Split('|');
+            int author_id_waiting = Convert.ToInt32(AuthorID[0].Trim());//nov id
+            #endregion
+
+            Authors aid = new Authors(0, author_name, author_surname);//tastar id
+            dbc.idAuthors(aid);
+            int author_id = 0;
+            foreach (int k in dbc.idAuthors(aid))
+            {
+                author_id = k;
+            }
+
+            Book_Authors baid = new Book_Authors(author_id, id_b);//poiscem id v book authors z pomocjo ttih idejev
+            dbc.idBookAuthors(baid);
+            int book_authors_id = 0;
+            foreach (int k in dbc.idBookAuthors(baid))
+            {
+                book_authors_id = k;
+            }
+
+            Books b = new Books(id_b, selectedBook, summary, year, lost, genre_id, publisher_id, location_id);
+            MessageBox.Show("bookauthor " + Convert.ToString(book_authors_id)+ "author " + Convert.ToString(author_id)+ "book " + Convert.ToString(id_b));
+            Book_Authors ba = new Book_Authors(author_id, id_b, book_authors_id, author_id_waiting);
+            dbc.UpdateBooksAuthors(ba);
             dbc.UpdateBooks(b);
             bookslistBox.Items.Clear();
             OutputBooks();
             userUnLendedBookslistBox.Items.Clear();
             userLendedBookslistBox.Items.Clear();
-            OutputBooksOnRents_Lended();
+            //OutputBooksOnRents_Lended();
             OutputBooksOnRents_UnLended();
         }
 
@@ -614,15 +593,6 @@ namespace theLibraryProject
             string publisher_name = BookID[7].Trim();
             string genre_genretype = BookID[8].Trim();
             int id_g = 0;
-            #region location_id
-            /*string selectedLocation = locationBooksCombobox.SelectedItem.ToString();//exception needs to be handled
-            selectedLocation = selectedLocation.Trim();
-            string[] LocationID = selectedLocation.Split('|');
-            selectedLocation = LocationID[1].Trim();
-            string postalcode = LocationID[2].Trim();
-            int location_id = Convert.ToInt32(LocationID[0].Trim());*/
-            #endregion
-
 
             Authors aid = new Authors(0, author_name, author_surname);
             dbc.idAuthors(aid);
@@ -678,33 +648,43 @@ namespace theLibraryProject
 
 
             Book_Authors ba = new Book_Authors(author_id, id_b);
-            MessageBox.Show("author"+Convert.ToString(author_id), "book" + Convert.ToString(id_b));
+            //MessageBox.Show("author"+Convert.ToString(author_id), "book" + Convert.ToString(id_b));
             dbc.DeleteBooksAuthors(ba);
             dbc.DeleteBooks(b);
             bookslistBox.Items.Clear();
             OutputBooks();
             userUnLendedBookslistBox.Items.Clear();
             userLendedBookslistBox.Items.Clear();
-            OutputBooksOnRents_Lended();
+            //OutputBooksOnRents_Lended();
             OutputBooksOnRents_UnLended();
         }
         private void bookslistBox_DoubleClick(object sender, EventArgs e)
         {
+            //SELECT b.id_b, b.title, a.name, a.surname, b.lost, b.year, l.name, p.name, g.genretype
             databaseController dbc = new databaseController();
             string selectedBook = bookslistBox.SelectedItem.ToString();//exception needs to be handled
             selectedBook = selectedBook.Trim();
             string[] BookID = selectedBook.Split('|');
             int id_b = Convert.ToInt32(BookID[0].Trim());
             selectedBook = BookID[1].Trim();//title
-            string summary = BookID[2].Trim();    
-            string year = BookID[3].Trim();
+            //string summary = BookID[2].Trim();    
+            
             int lost = Convert.ToInt32(BookID[4].Trim());
+            string year = BookID[5].Trim();
             //string genre_id = BookID[5].Trim();
-            int genre_id = Convert.ToInt32(BookID[5].Trim());
-            int publisher_id = Convert.ToInt32(BookID[6].Trim());
+            //int genre_id = Convert.ToInt32(BookID[5].Trim());
+            //int publisher_id = Convert.ToInt32(BookID[6].Trim());
             titleTextBox.Text = selectedBook.ToString();
             //publish_date
-            summaryTextBox.Text = summary.ToString();
+            //summaryTextBox.Text = summary.ToString();
+            yearTextBox.Text = year.ToString();
+
+            if (lost == 1)
+            {
+                lostBookCheckBox.Checked = true;
+            }
+            else
+                lostBookCheckBox.Checked = false;
         }
         #endregion
 
@@ -790,6 +770,7 @@ namespace theLibraryProject
         #region Rents
         private void rentABookButton_Click(object sender, EventArgs e)
         {
+    
             if (userShowcomboBox.SelectedIndex == null)
             {
                 MessageBox.Show("Izberite člana.");
@@ -801,22 +782,278 @@ namespace theLibraryProject
                 selectedUser = selectedUser.Trim();
                 string[] UserID = selectedUser.Split('|');
                 int id_u = Convert.ToInt32(UserID[0].Trim());
-                selectedUser = UserID[1].Trim();//user's name
+                string name = UserID[1].Trim();//title
                 string surname = UserID[2].Trim();
                 string tel = UserID[3].Trim();
-                string address = UserID[4].Trim();
-                string email = UserID[5].Trim();
-                string username = UserID[6].Trim();
-                string password = UserID[7].Trim();
-                string notes = UserID[8].Trim();
-                int location_id = Convert.ToInt32(UserID[9].Trim());
-                //Users u = new Users(id_u, selectedUser, surname, tel, address, email, username, password, notes);
-                //dbc.DeleteUsers(u);
-                userShowcomboBox.Items.Clear();
-                OutputUsers();
+                string address = UserID[3].Trim();
+                string location_name = UserID[3].Trim();
+                string location_postalcode = UserID[3].Trim();
 
+                Locations lid = new Locations(0, location_name, "");
+                dbc.idLocations(lid);
+                int location_id = 0;
+                foreach (int k in dbc.idLocations(lid))
+                {
+                    location_id = k;
+                }
+                Users uid = new Users(0, name, surname, "", "", "", "", 0);
+                dbc.idUsers(uid);
+                int user_id = 0;
+                foreach (int k in dbc.idUsers(uid))
+                {
+                    user_id = k;
+                }
+
+
+
+                if (userUnLendedBookslistBox.SelectedIndex == null)
+                {
+                    MessageBox.Show("Izberite knjigo.");
+                }
+                else
+                { 
+                
+                string selectedBook = userUnLendedBookslistBox.SelectedItem.ToString();//exception needs to be handled
+                selectedBook = selectedBook.Trim();
+                string[] BookID = selectedBook.Split('|');
+                int id_b = Convert.ToInt32(BookID[0].Trim());
+                selectedBook = BookID[1].Trim();//title
+                string author_name = BookID[2].Trim();
+                string author_surname = BookID[3].Trim();
+                int lost = Convert.ToInt32(BookID[4].Trim());
+                string year = BookID[5].Trim();
+                string location_name_book = BookID[6].Trim();
+                string publisher_name = BookID[7].Trim();
+                string genre_genretype = BookID[8].Trim();
+                int id_g = 0;
+
+                Authors aid = new Authors(0, author_name, author_surname);
+                dbc.idAuthors(aid);
+                int author_id = 0;
+                foreach (int k in dbc.idAuthors(aid))
+                {
+                    author_id = k;
+                }
+
+                Locations lid_book = new Locations(0, location_name, "");
+                dbc.idLocations(lid);
+                int location_id_book = 0;
+                foreach (int k in dbc.idLocations(lid))
+                {
+                    location_id = k;
+                }
+
+                Publishers pid = new Publishers(0, publisher_name);
+                dbc.idPublishers(pid);
+                int publisher_id = 0;
+                foreach (int k in dbc.idPublishers(pid))
+                {
+                    publisher_id = k;
+                }
+
+                Genres gid = new Genres(0, genre_genretype);
+                dbc.idGenres(gid);
+                int genre_id = 0;
+                foreach (int k in dbc.idGenres(gid))
+                {
+                    genre_id = k;
+                }
+
+                Rents rid = new Rents(0, 0, "", id_b, user_id);
+                dbc.idRents(rid);
+                int rent_id = 0;
+                foreach (int k in dbc.idRents(rid))
+                {
+                    rent_id = k;
+                }
+
+
+                    string rent_date = Convert.ToString(DateTime.Now);
+                int rent_state = 1;
+
+                MessageBox.Show("rentid" + Convert.ToString(rent_id)+"bookid" + Convert.ToString(id_b) + "userid"+Convert.ToString(id_u));
+
+                Rents rentss = new Rents(rent_id, rent_state, rent_date, id_b, id_u);
+                dbc.UpdateRentsLend(rentss);
+
+                userUnLendedBookslistBox.Items.Clear();
+                OutputBooksOnRents_UnLended();
+
+
+
+
+                }
             }
+         
         }
         #endregion
+
+        private void userShowcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            userLendedBookslistBox.Items.Clear();
+            userUnLendedBookslistBox.Items.Clear();
+
+
+            //SELECT u.id_u, u.name, u.surname, u.tel, u.address, u.notes, l.name, l.postalcode 
+            databaseController dbc = new databaseController();
+            string selectedUser = userShowcomboBox.SelectedItem.ToString();//exception needs to be handled
+            selectedUser = selectedUser.Trim();
+            string[] UserID = selectedUser.Split('|');
+            int id_u = Convert.ToInt32(UserID[0].Trim());
+            string name = UserID[1].Trim();//title
+            string surname = UserID[2].Trim();
+            string tel = UserID[3].Trim();
+            string address = UserID[3].Trim();
+            string location_name = UserID[3].Trim();
+            string location_postalcode = UserID[3].Trim();
+
+            Locations lid = new Locations(0, location_name, "");
+            dbc.idLocations(lid);
+            int location_id = 0;
+            foreach (int k in dbc.idLocations(lid))
+            {
+                location_id = k;
+            }
+            Users uid = new Users(0, name, surname, "", "", "", "",0);
+            dbc.idUsers(uid);
+            int user_id = 0;
+            foreach (int k in dbc.idUsers(uid))
+            {
+                user_id = k;
+            }
+            Users u = new Users(id_u, name, surname, tel, address, "", "", location_id );
+            Rents r = new Rents(0, 1, "", 0, id_u);
+            dbc.ReadLendedBooks(r);
+            foreach (string name1 in dbc.ReadLendedBooks(r))
+            {
+                userLendedBookslistBox.Items.Add(name1);
+            }
+
+            
+            userUnLendedBookslistBox.Items.Clear();
+            dbc.ReadUnlendedBooks();
+            foreach (string name1 in dbc.ReadUnlendedBooks())
+            {
+                userUnLendedBookslistBox.Items.Add(name1);
+            }
+            userUnLendedBookslistBox.Items.Clear();
+            //OutputBooksOnRents_Lended();
+            OutputBooksOnRents_UnLended();
+        }
+
+        private void returnBookButton_Click(object sender, EventArgs e)
+        {
+            if (userShowcomboBox.SelectedIndex == null)
+            {
+                MessageBox.Show("Izberite člana.");
+            }
+            else
+            {
+                databaseController dbc = new databaseController();
+                string selectedUser = userShowcomboBox.SelectedItem.ToString();//exception needs to be handled
+                selectedUser = selectedUser.Trim();
+                string[] UserID = selectedUser.Split('|');
+                int id_u = Convert.ToInt32(UserID[0].Trim());
+                string name = UserID[1].Trim();//title
+                string surname = UserID[2].Trim();
+                string tel = UserID[3].Trim();
+                string address = UserID[3].Trim();
+                string location_name = UserID[3].Trim();
+                string location_postalcode = UserID[3].Trim();
+
+                Locations lid = new Locations(0, location_name, "");
+                dbc.idLocations(lid);
+                int location_id = 0;
+                foreach (int k in dbc.idLocations(lid))
+                {
+                    location_id = k;
+                }
+                Users uid = new Users(0, name, surname, "", "", "", "", 0);
+                dbc.idUsers(uid);
+                int user_id = 0;
+                foreach (int k in dbc.idUsers(uid))
+                {
+                    user_id = k;
+                }
+
+
+
+                if (userUnLendedBookslistBox.SelectedIndex == null)
+                {
+                    MessageBox.Show("Izberite knjigo.");
+                }
+                else
+                {
+
+                    string selectedBook = userLendedBookslistBox.SelectedItem.ToString();//exception needs to be handled
+                    selectedBook = selectedBook.Trim();
+                    string[] BookID = selectedBook.Split('|');
+                    int id_b = Convert.ToInt32(BookID[0].Trim());
+                    selectedBook = BookID[1].Trim();//title
+                    string author_name = BookID[2].Trim();
+                    string author_surname = BookID[3].Trim();
+                    int lost = Convert.ToInt32(BookID[4].Trim());
+                    string year = BookID[5].Trim();
+                    string location_name_book = BookID[6].Trim();
+                    string publisher_name = BookID[7].Trim();
+                    string genre_genretype = BookID[8].Trim();
+                    int id_g = 0;
+
+                    Authors aid = new Authors(0, author_name, author_surname);
+                    dbc.idAuthors(aid);
+                    int author_id = 0;
+                    foreach (int k in dbc.idAuthors(aid))
+                    {
+                        author_id = k;
+                    }
+
+                    Locations lid_book = new Locations(0, location_name, "");
+                    dbc.idLocations(lid);
+                    int location_id_book = 0;
+                    foreach (int k in dbc.idLocations(lid))
+                    {
+                        location_id = k;
+                    }
+
+                    Publishers pid = new Publishers(0, publisher_name);
+                    dbc.idPublishers(pid);
+                    int publisher_id = 0;
+                    foreach (int k in dbc.idPublishers(pid))
+                    {
+                        publisher_id = k;
+                    }
+
+                    Genres gid = new Genres(0, genre_genretype);
+                    dbc.idGenres(gid);
+                    int genre_id = 0;
+                    foreach (int k in dbc.idGenres(gid))
+                    {
+                        genre_id = k;
+                    }
+
+                    Rents rid = new Rents(0, 0, "", id_b, user_id);
+                    dbc.idRents(rid);
+                    int rent_id = 0;
+                    foreach (int k in dbc.idRents(rid))
+                    {
+                        rent_id = k;
+                    }
+
+
+                    string rent_date = Convert.ToString(DateTime.Now);
+                    int rent_state = 0;
+
+                    MessageBox.Show("rentid" + Convert.ToString(rent_id) + "bookid" + Convert.ToString(id_b) + "userid" + Convert.ToString(id_u));
+
+                    Rents rentss = new Rents(rent_id, rent_state, rent_date, id_b, id_u);
+                    dbc.UpdateRentsUnLend(rentss);
+
+                    userUnLendedBookslistBox.Items.Clear();
+                    userLendedBookslistBox.Items.Clear();
+                    OutputBooksOnRents_UnLended();
+                }
+            }
+
+        }
     }
 }

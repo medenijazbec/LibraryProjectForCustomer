@@ -32,13 +32,10 @@
             this.deleteUserButton = new System.Windows.Forms.Button();
             this.userShowcomboBox = new System.Windows.Forms.ComboBox();
             this.registerUserButton = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.editUserButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.userUnLendedBookslistBox = new System.Windows.Forms.ListBox();
-            this.returnAllBooksButton = new System.Windows.Forms.Button();
             this.userLendedBookslistBox = new System.Windows.Forms.ListBox();
             this.returnBookButton = new System.Windows.Forms.Button();
             this.rentABookButton = new System.Windows.Forms.Button();
@@ -141,13 +138,10 @@
             this.Član.Controls.Add(this.deleteUserButton);
             this.Član.Controls.Add(this.userShowcomboBox);
             this.Član.Controls.Add(this.registerUserButton);
-            this.Član.Controls.Add(this.button13);
-            this.Član.Controls.Add(this.textBox6);
             this.Član.Controls.Add(this.editUserButton);
             this.Član.Controls.Add(this.label12);
             this.Član.Controls.Add(this.label4);
             this.Član.Controls.Add(this.userUnLendedBookslistBox);
-            this.Član.Controls.Add(this.returnAllBooksButton);
             this.Član.Controls.Add(this.userLendedBookslistBox);
             this.Član.Controls.Add(this.returnBookButton);
             this.Član.Controls.Add(this.rentABookButton);
@@ -178,6 +172,7 @@
             this.userShowcomboBox.Name = "userShowcomboBox";
             this.userShowcomboBox.Size = new System.Drawing.Size(557, 21);
             this.userShowcomboBox.TabIndex = 59;
+            this.userShowcomboBox.SelectedIndexChanged += new System.EventHandler(this.userShowcomboBox_SelectedIndexChanged);
             // 
             // registerUserButton
             // 
@@ -188,22 +183,6 @@
             this.registerUserButton.Text = "Registriraj člana";
             this.registerUserButton.UseVisualStyleBackColor = true;
             this.registerUserButton.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(489, 76);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 57;
-            this.button13.Text = "Search";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(362, 76);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(121, 20);
-            this.textBox6.TabIndex = 56;
             // 
             // editUserButton
             // 
@@ -236,42 +215,34 @@
             // userUnLendedBookslistBox
             // 
             this.userUnLendedBookslistBox.FormattingEnabled = true;
-            this.userUnLendedBookslistBox.Location = new System.Drawing.Point(362, 127);
+            this.userUnLendedBookslistBox.Location = new System.Drawing.Point(443, 127);
             this.userUnLendedBookslistBox.Name = "userUnLendedBookslistBox";
-            this.userUnLendedBookslistBox.Size = new System.Drawing.Size(469, 212);
+            this.userUnLendedBookslistBox.Size = new System.Drawing.Size(434, 212);
             this.userUnLendedBookslistBox.TabIndex = 10;
-            // 
-            // returnAllBooksButton
-            // 
-            this.returnAllBooksButton.Location = new System.Drawing.Point(23, 374);
-            this.returnAllBooksButton.Name = "returnAllBooksButton";
-            this.returnAllBooksButton.Size = new System.Drawing.Size(102, 23);
-            this.returnAllBooksButton.TabIndex = 9;
-            this.returnAllBooksButton.Text = "Vrni vse";
-            this.returnAllBooksButton.UseVisualStyleBackColor = true;
             // 
             // userLendedBookslistBox
             // 
             this.userLendedBookslistBox.FormattingEnabled = true;
             this.userLendedBookslistBox.Location = new System.Drawing.Point(23, 127);
             this.userLendedBookslistBox.Name = "userLendedBookslistBox";
-            this.userLendedBookslistBox.Size = new System.Drawing.Size(306, 212);
+            this.userLendedBookslistBox.Size = new System.Drawing.Size(414, 212);
             this.userLendedBookslistBox.TabIndex = 8;
             // 
             // returnBookButton
             // 
             this.returnBookButton.Location = new System.Drawing.Point(23, 345);
             this.returnBookButton.Name = "returnBookButton";
-            this.returnBookButton.Size = new System.Drawing.Size(102, 23);
+            this.returnBookButton.Size = new System.Drawing.Size(117, 23);
             this.returnBookButton.TabIndex = 7;
             this.returnBookButton.Text = "Vrni";
             this.returnBookButton.UseVisualStyleBackColor = true;
+            this.returnBookButton.Click += new System.EventHandler(this.returnBookButton_Click);
             // 
             // rentABookButton
             // 
             this.rentABookButton.Location = new System.Drawing.Point(756, 345);
             this.rentABookButton.Name = "rentABookButton";
-            this.rentABookButton.Size = new System.Drawing.Size(75, 23);
+            this.rentABookButton.Size = new System.Drawing.Size(121, 23);
             this.rentABookButton.TabIndex = 5;
             this.rentABookButton.Text = "Izposoja";
             this.rentABookButton.UseVisualStyleBackColor = true;
@@ -1192,7 +1163,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button rentABookButton;
         private System.Windows.Forms.Button returnBookButton;
-        private System.Windows.Forms.Button returnAllBooksButton;
         private System.Windows.Forms.ListBox userLendedBookslistBox;
         private System.Windows.Forms.ListBox userUnLendedBookslistBox;
         private System.Windows.Forms.Label label4;
@@ -1206,8 +1176,6 @@
         private System.Windows.Forms.TextBox passwordChangeTextbox;
         private System.Windows.Forms.Button changePasswordButton;
         private System.Windows.Forms.Button editUserButton;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox yearTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox lostBookCheckBox;
