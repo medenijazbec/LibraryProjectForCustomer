@@ -747,6 +747,36 @@ namespace theLibraryProject
                 return listOfBooks;
             }
         }
+
+        public List<string> ReadUsersForUpdate()
+        {
+            List<string> listOfBooks = new List<string>();
+            using (SQLiteConnection con = new SQLiteConnection("data source=Knjiznica_projektt.db"))
+            {
+                con.Open();
+                string query = "SELECT u.id_u, u.name, u.surname, u.tel, u.address, u.email, u.username, u.notes FROM users u;";
+                SQLiteCommand com = new SQLiteCommand(query, con);
+                SQLiteDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetString(1);
+                    string surname = reader.GetString(2);
+                    string tel = reader.GetString(3);
+                    string address = reader.GetString(4);
+                    string email = reader.GetString(5);
+                    string username = reader.GetString(6);
+                    //string password = reader.GetString();
+                    string notes = reader.GetString(7);
+                    listOfBooks.Add(id + " | " + name + " | " + surname + " | " + tel + " | " + address + " | "+email+ " | " +username + " | " + notes);
+                }
+                com.Dispose();
+                con.Close();
+                return listOfBooks;
+            }
+        }
+
+
         public void SaveUsers(Users UsersToSave)
         {
             List<string> listOfBooks = new List<string>();

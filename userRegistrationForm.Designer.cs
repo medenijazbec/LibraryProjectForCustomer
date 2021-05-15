@@ -30,6 +30,8 @@ namespace theLibraryProject
         private void InitializeComponent()
         {
             this.userEditGroupBox = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.passwordChangeTextboxV2 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -50,8 +52,6 @@ namespace theLibraryProject
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.passwordChangeTextboxV2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.userEditGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,22 @@ namespace theLibraryProject
             this.userEditGroupBox.TabIndex = 11;
             this.userEditGroupBox.TabStop = false;
             this.userEditGroupBox.Text = "Ustvari uporabnika";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(162, 235);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(111, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Ponovno vpišite geslo";
+            // 
+            // passwordChangeTextboxV2
+            // 
+            this.passwordChangeTextboxV2.Location = new System.Drawing.Point(6, 232);
+            this.passwordChangeTextboxV2.Name = "passwordChangeTextboxV2";
+            this.passwordChangeTextboxV2.Size = new System.Drawing.Size(150, 20);
+            this.passwordChangeTextboxV2.TabIndex = 21;
             // 
             // richTextBox1
             // 
@@ -252,22 +268,6 @@ namespace theLibraryProject
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Uporabniško ime";
-            // 
-            // passwordChangeTextboxV2
-            // 
-            this.passwordChangeTextboxV2.Location = new System.Drawing.Point(6, 232);
-            this.passwordChangeTextboxV2.Name = "passwordChangeTextboxV2";
-            this.passwordChangeTextboxV2.Size = new System.Drawing.Size(150, 20);
-            this.passwordChangeTextboxV2.TabIndex = 21;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(162, 235);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(111, 13);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Ponovno vpišite geslo";
             // 
             // userRegistrationForm
             // 

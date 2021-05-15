@@ -67,8 +67,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TabbedPages = new System.Windows.Forms.TabControl();
             this.LocationsTabPage = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.showLocationsButton = new System.Windows.Forms.Button();
             this.locationsUpdateButton = new System.Windows.Forms.Button();
             this.locationsDeleteButton = new System.Windows.Forms.Button();
@@ -79,8 +77,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.locationslistBox = new System.Windows.Forms.ListBox();
             this.AuthorsTabPage = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.authorsSurnameTextBox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.authorsShowAllButton = new System.Windows.Forms.Button();
@@ -91,8 +87,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.authorsListbox = new System.Windows.Forms.ListBox();
             this.PublishersTabPage = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.publishersShowAllButton = new System.Windows.Forms.Button();
             this.publishersUpdateButton = new System.Windows.Forms.Button();
             this.publishersDeleteButton = new System.Windows.Forms.Button();
@@ -101,8 +95,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.publishersListBox = new System.Windows.Forms.ListBox();
             this.genreTab = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.genresShowallButton = new System.Windows.Forms.Button();
             this.genresUpdateButton = new System.Windows.Forms.Button();
             this.genresDeleteButton = new System.Windows.Forms.Button();
@@ -206,7 +198,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(359, 111);
+            this.label4.Location = new System.Drawing.Point(786, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 11;
@@ -518,8 +510,6 @@
             // 
             // LocationsTabPage
             // 
-            this.LocationsTabPage.Controls.Add(this.button5);
-            this.LocationsTabPage.Controls.Add(this.textBox2);
             this.LocationsTabPage.Controls.Add(this.showLocationsButton);
             this.LocationsTabPage.Controls.Add(this.locationsUpdateButton);
             this.LocationsTabPage.Controls.Add(this.locationsDeleteButton);
@@ -536,22 +526,6 @@
             this.LocationsTabPage.TabIndex = 2;
             this.LocationsTabPage.Text = "Kraji";
             this.LocationsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(310, 25);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 57;
-            this.button5.Text = "Search";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(183, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 56;
             // 
             // showLocationsButton
             // 
@@ -636,8 +610,6 @@
             // 
             // AuthorsTabPage
             // 
-            this.AuthorsTabPage.Controls.Add(this.button6);
-            this.AuthorsTabPage.Controls.Add(this.textBox3);
             this.AuthorsTabPage.Controls.Add(this.authorsSurnameTextBox);
             this.AuthorsTabPage.Controls.Add(this.label17);
             this.AuthorsTabPage.Controls.Add(this.authorsShowAllButton);
@@ -654,22 +626,6 @@
             this.AuthorsTabPage.TabIndex = 3;
             this.AuthorsTabPage.Text = "Avtorji";
             this.AuthorsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(302, 18);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 57;
-            this.button6.Text = "Search";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(175, 18);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 56;
             // 
             // authorsSurnameTextBox
             // 
@@ -754,8 +710,6 @@
             // 
             // PublishersTabPage
             // 
-            this.PublishersTabPage.Controls.Add(this.button7);
-            this.PublishersTabPage.Controls.Add(this.textBox4);
             this.PublishersTabPage.Controls.Add(this.publishersShowAllButton);
             this.PublishersTabPage.Controls.Add(this.publishersUpdateButton);
             this.PublishersTabPage.Controls.Add(this.publishersDeleteButton);
@@ -770,22 +724,6 @@
             this.PublishersTabPage.TabIndex = 4;
             this.PublishersTabPage.Text = "Založba";
             this.PublishersTabPage.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(452, 32);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 57;
-            this.button7.Text = "Search";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(325, 32);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 20);
-            this.textBox4.TabIndex = 56;
             // 
             // publishersShowAllButton
             // 
@@ -854,8 +792,6 @@
             // 
             // genreTab
             // 
-            this.genreTab.Controls.Add(this.button8);
-            this.genreTab.Controls.Add(this.textBox5);
             this.genreTab.Controls.Add(this.genresShowallButton);
             this.genreTab.Controls.Add(this.genresUpdateButton);
             this.genreTab.Controls.Add(this.genresDeleteButton);
@@ -870,22 +806,6 @@
             this.genreTab.TabIndex = 5;
             this.genreTab.Text = "Žanri";
             this.genreTab.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(462, 50);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 57;
-            this.button8.Text = "Search";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(335, 52);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(121, 20);
-            this.textBox5.TabIndex = 56;
             // 
             // genresShowallButton
             // 
@@ -1150,14 +1070,6 @@
         private System.Windows.Forms.ListBox bookslistBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;

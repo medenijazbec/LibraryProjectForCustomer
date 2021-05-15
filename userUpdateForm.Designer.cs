@@ -52,12 +52,13 @@ namespace theLibraryProject
             this.telTextBox = new System.Windows.Forms.TextBox();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.userEditGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // updateUserButton
             // 
-            this.updateUserButton.Location = new System.Drawing.Point(6, 371);
+            this.updateUserButton.Location = new System.Drawing.Point(6, 401);
             this.updateUserButton.Name = "updateUserButton";
             this.updateUserButton.Size = new System.Drawing.Size(75, 23);
             this.updateUserButton.TabIndex = 0;
@@ -68,7 +69,7 @@ namespace theLibraryProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(162, 25);
+            this.label1.Location = new System.Drawing.Point(162, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 1;
@@ -77,7 +78,7 @@ namespace theLibraryProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(162, 54);
+            this.label2.Location = new System.Drawing.Point(162, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 2;
@@ -86,7 +87,7 @@ namespace theLibraryProject
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(162, 79);
+            this.label3.Location = new System.Drawing.Point(162, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 3;
@@ -95,7 +96,7 @@ namespace theLibraryProject
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(162, 103);
+            this.label4.Location = new System.Drawing.Point(162, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 4;
@@ -104,7 +105,7 @@ namespace theLibraryProject
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(162, 157);
+            this.label5.Location = new System.Drawing.Point(162, 187);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 5;
@@ -113,7 +114,7 @@ namespace theLibraryProject
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(162, 183);
+            this.label6.Location = new System.Drawing.Point(162, 213);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 6;
@@ -122,7 +123,7 @@ namespace theLibraryProject
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(162, 209);
+            this.label7.Location = new System.Drawing.Point(162, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 7;
@@ -131,7 +132,7 @@ namespace theLibraryProject
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(221, 315);
+            this.label8.Location = new System.Drawing.Point(221, 345);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 13);
             this.label8.TabIndex = 8;
@@ -140,7 +141,7 @@ namespace theLibraryProject
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(222, 19);
+            this.checkBox1.Location = new System.Drawing.Point(222, 54);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(62, 17);
             this.checkBox1.TabIndex = 9;
@@ -150,6 +151,7 @@ namespace theLibraryProject
             // 
             // userEditGroupBox
             // 
+            this.userEditGroupBox.Controls.Add(this.comboBox1);
             this.userEditGroupBox.Controls.Add(this.label10);
             this.userEditGroupBox.Controls.Add(this.passwordChangeTextboxV2);
             this.userEditGroupBox.Controls.Add(this.richTextBox1);
@@ -174,7 +176,7 @@ namespace theLibraryProject
             this.userEditGroupBox.Controls.Add(this.label6);
             this.userEditGroupBox.Location = new System.Drawing.Point(12, 12);
             this.userEditGroupBox.Name = "userEditGroupBox";
-            this.userEditGroupBox.Size = new System.Drawing.Size(290, 400);
+            this.userEditGroupBox.Size = new System.Drawing.Size(290, 431);
             this.userEditGroupBox.TabIndex = 10;
             this.userEditGroupBox.TabStop = false;
             this.userEditGroupBox.Text = "Uredi uporabnika";
@@ -182,7 +184,7 @@ namespace theLibraryProject
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(162, 235);
+            this.label10.Location = new System.Drawing.Point(162, 265);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(111, 13);
             this.label10.TabIndex = 22;
@@ -190,14 +192,14 @@ namespace theLibraryProject
             // 
             // passwordChangeTextboxV2
             // 
-            this.passwordChangeTextboxV2.Location = new System.Drawing.Point(6, 232);
+            this.passwordChangeTextboxV2.Location = new System.Drawing.Point(6, 262);
             this.passwordChangeTextboxV2.Name = "passwordChangeTextboxV2";
             this.passwordChangeTextboxV2.Size = new System.Drawing.Size(150, 20);
             this.passwordChangeTextboxV2.TabIndex = 21;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 269);
+            this.richTextBox1.Location = new System.Drawing.Point(6, 299);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(209, 96);
             this.richTextBox1.TabIndex = 12;
@@ -206,7 +208,7 @@ namespace theLibraryProject
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(162, 130);
+            this.label9.Location = new System.Drawing.Point(162, 160);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(25, 13);
             this.label9.TabIndex = 20;
@@ -215,65 +217,74 @@ namespace theLibraryProject
             // locationsComboBox
             // 
             this.locationsComboBox.FormattingEnabled = true;
-            this.locationsComboBox.Location = new System.Drawing.Point(6, 127);
+            this.locationsComboBox.Location = new System.Drawing.Point(6, 157);
             this.locationsComboBox.Name = "locationsComboBox";
             this.locationsComboBox.Size = new System.Drawing.Size(150, 21);
             this.locationsComboBox.TabIndex = 19;
             // 
             // passwordChangeTextbox
             // 
-            this.passwordChangeTextbox.Location = new System.Drawing.Point(6, 206);
+            this.passwordChangeTextbox.Location = new System.Drawing.Point(6, 236);
             this.passwordChangeTextbox.Name = "passwordChangeTextbox";
             this.passwordChangeTextbox.Size = new System.Drawing.Size(150, 20);
             this.passwordChangeTextbox.TabIndex = 17;
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(6, 180);
+            this.usernameTextBox.Location = new System.Drawing.Point(6, 210);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(150, 20);
             this.usernameTextBox.TabIndex = 16;
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(6, 154);
+            this.emailTextBox.Location = new System.Drawing.Point(6, 184);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(150, 20);
             this.emailTextBox.TabIndex = 15;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(6, 100);
+            this.addressTextBox.Location = new System.Drawing.Point(6, 130);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(150, 20);
             this.addressTextBox.TabIndex = 14;
             // 
             // telTextBox
             // 
-            this.telTextBox.Location = new System.Drawing.Point(6, 76);
+            this.telTextBox.Location = new System.Drawing.Point(6, 106);
             this.telTextBox.Name = "telTextBox";
             this.telTextBox.Size = new System.Drawing.Size(150, 20);
             this.telTextBox.TabIndex = 13;
             // 
             // surnameTextBox
             // 
-            this.surnameTextBox.Location = new System.Drawing.Point(6, 51);
+            this.surnameTextBox.Location = new System.Drawing.Point(6, 81);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(150, 20);
             this.surnameTextBox.TabIndex = 12;
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(6, 25);
+            this.nameTextBox.Location = new System.Drawing.Point(6, 55);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(150, 20);
             this.nameTextBox.TabIndex = 11;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 28);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(278, 21);
+            this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // userUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 424);
+            this.ClientSize = new System.Drawing.Size(315, 459);
             this.Controls.Add(this.userEditGroupBox);
             this.Name = "userUpdateForm";
             this.Text = "userUpdateForm";
@@ -309,5 +320,6 @@ namespace theLibraryProject
         private System.Windows.Forms.ComboBox locationsComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox passwordChangeTextboxV2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
